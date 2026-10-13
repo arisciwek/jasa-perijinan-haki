@@ -26,6 +26,10 @@ blocks:
         label: "Kelas klasifikasi barang dan jasa sebagai acuan cakupan permohonan"
       - value: "1 merek"
         label: "Satu permohonan untuk satu merek; kelas yang dicakup dapat lebih dari satu"
+  - component: "quote"
+    id: "prinsip-persiapan"
+    text: "Perlindungan merek dimulai dari persiapan yang rapi: identitas yang jelas, daftar barang atau jasa yang jujur, dan pemeriksaan awal sebelum mengajukan."
+    source: "Prinsip persiapan pendaftaran merek"
 ---
 ## Mulai dari identitas merek
 

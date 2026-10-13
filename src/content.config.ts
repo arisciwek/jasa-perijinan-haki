@@ -153,6 +153,17 @@ const articles = defineCollection({
           definition: z.string().min(1).optional(),
         }).optional(),
       }),
+      z.object({
+        component: z.literal('quote'),
+        id: z.string().min(1).optional(),
+        text: z.string().min(1),
+        source: z.string().min(1).optional(),
+        class: z.object({
+          section: z.string().min(1).optional(),
+          text: z.string().min(1).optional(),
+          source: z.string().min(1).optional(),
+        }).optional(),
+      }),
     ])).default([]),
   }),
 });

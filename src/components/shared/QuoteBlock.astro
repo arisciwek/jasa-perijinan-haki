@@ -1,0 +1,36 @@
+---
+/**
+ * QuoteBlock — block "quote" (kutipan/testimoni dengan atribusi).
+ *
+ * Merender: blockquote dengan aksen garis di kiri + teks kutipan +
+ * sumber (opsional). TIDAK punya heading → tidak masuk "Daftar Isi";
+ * posisinya mengikuti urutan blocks di frontmatter.
+ *
+ * Props:
+ * - id?:     string — anchor HTML; TIDAK masuk TOC
+ * - text:    string — isi kutipan (wajib)
+ * - source?: string — atribusi, mis. nama atau peran (opsional)
+ * - class?:  object — kelas tiap bagian; key yang tidak diisi memakai DEFAULT:
+ *              section: "mt-10 rounded-2xl border-l-4 border-blue-600 bg-slate-50 p-6 md:p-8"
+ *              text:    "leading-8 text-slate-700"
+ *              source:  "mt-3 text-sm font-semibold text-slate-500"
+ *
+ * Contoh pemakaian di frontmatter artikel (src/content/articles/*.md):
+ *   blocks:
+ *     - component: "quote"
+ *       id: "prinsip"
+ *       text: "Persiapan yang rapi membuat proses pengurusan lebih terarah."
+ *       source: "Prinsip persiapan pendaftaran merek"
+ */
+const { id, text, source, class: cls = {} } = Astro.props as { id?: string; text: string; source?: string; class?: Record<string, string> };
+const classes = {
+  section: 'mt-10 rounded-2xl border-l-4 border-blue-600 bg-slate-50 p-6 md:p-8',
+  text: 'leading-8 text-slate-700',
+  source: 'mt-3 text-sm font-semibold text-slate-500',
+  ...cls,
+};
+---
+<blockquote id={id} class={classes.section}>
+  <p class={classes.text}>{text}</p>
+  {source && <footer class={classes.source}>{source}</footer>}
+</blockquote>
