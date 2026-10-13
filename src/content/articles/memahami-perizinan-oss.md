@@ -20,6 +20,18 @@ blocks:
     variant: "warning"
     title: "Perhatian"
     text: "Klasifikasi kegiatan yang kurang tepat berdampak pada jenis izin, kewajiban, hingga insentif yang bisa diterima. Periksa ulang uraian kegiatan sebelum mengajukan."
+  - component: "steps"
+    id: "alur-persiapan"
+    heading: "Alur persiapan sebelum pengurusan"
+    items:
+      - title: "Petakan kegiatan usaha"
+        text: "Uraikan produk atau jasa, proses operasional, dan lokasi kegiatan seperti adanya."
+      - title: "Cocokkan dengan klasifikasi"
+        text: "Pilih klasifikasi yang paling sesuai dengan uraian aktivitas, bukan sekadar nama yang mirip."
+      - title: "Rapikan data legalitas"
+        text: "Pastikan data badan usaha dan penanggung jawab konsisten dengan dokumen yang tersedia."
+      - title: "Periksa kewajiban lanjutan"
+        text: "Cek status kewajiban dan izin tambahan yang mungkin melekat pada kegiatan terkait."
 ---
 ## Apa yang perlu dipahami sebelum memulai?
 

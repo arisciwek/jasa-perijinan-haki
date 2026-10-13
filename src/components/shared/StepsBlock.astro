@@ -1,0 +1,63 @@
+---
+/**
+ * StepsBlock — block "steps" (alur kerja bernomor).
+ *
+ * Merender: ikon + heading h2 + daftar langkah bernomor (1, 2, 3, …)
+ * dengan garis penghubung antar nomor. Heading wajib → masuk "Daftar Isi".
+ *
+ * Props:
+ * - id?:     string — anchor HTML & slug TOC; fallback otomatis `${component}-${index+1}`
+ * - heading: string — judul h2 section (wajib)
+ * - icon?:   string — nama ikon Tabler, default "clipboard-check" (daftar: Icon.astro)
+ * - items:   Array<{ title: string; text: string }> — min. 1 langkah (wajib)
+ * - class?:  object — kelas tiap bagian; key yang tidak diisi memakai DEFAULT:
+ *              section: "mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8"
+ *              icon:    "inline-flex rounded-xl bg-white p-2.5 text-blue-700 shadow-sm"
+ *              heading: "mt-4 text-2xl font-extrabold tracking-tight text-slate-950"
+ *              list:    "mt-6 space-y-0"              (pembungkus <ol>)
+ *              item:    "relative flex gap-4 pb-6 last:pb-0" + garis penghubung via after:
+ *                       "after:absolute after:left-[17px] after:top-10 after:bottom-0 after:w-0.5 after:bg-blue-200 last:after:hidden"
+ *              badge:   "relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-700 text-sm font-bold text-white"
+ *              title:   "font-bold text-slate-950"
+ *              text:    "mt-1 leading-7 text-slate-600"
+ *
+ * Contoh pemakaian di frontmatter artikel (src/content/articles/*.md):
+ *   blocks:
+ *     - component: "steps"
+ *       id: "alur-persiapan"
+ *       heading: "Alur persiapan pengurusan"
+ *       items:
+ *         - title: "Petakan kegiatan usaha"
+ *           text: "Uraikan produk atau jasa, proses operasional, dan lokasi kegiatan."
+ *         - title: "Cocokkan dengan klasifikasi"
+ *           text: "Pilih klasifikasi yang paling sesuai dengan uraian aktivitas."
+ */
+import Icon from './Icon.astro';
+const { id, heading, icon = 'clipboard-check', items = [], class: cls = {} } = Astro.props as { id?: string; heading: string; icon?: string; class?: Record<string, string>; items?: { title: string; text: string }[] };
+const classes = {
+  section: 'mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8',
+  icon: 'inline-flex rounded-xl bg-white p-2.5 text-blue-700 shadow-sm',
+  heading: 'mt-4 text-2xl font-extrabold tracking-tight text-slate-950',
+  list: 'mt-6 space-y-0',
+  item: 'relative flex gap-4 pb-6 last:pb-0 after:absolute after:left-[17px] after:top-10 after:bottom-0 after:w-0.5 after:bg-blue-200 last:after:hidden',
+  badge: 'relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-700 text-sm font-bold text-white',
+  title: 'font-bold text-slate-950',
+  text: 'mt-1 leading-7 text-slate-600',
+  ...cls,
+};
+---
+<section id={id} class={classes.section}>
+  <span class={classes.icon}><Icon name={icon ?? 'clipboard-check'} size={24} /></span>
+  <h2 class={classes.heading}>{heading}</h2>
+  <ol class={classes.list}>
+    {items.map((item, index) => (
+      <li class={classes.item}>
+        <span class={classes.badge}>{index + 1}</span>
+        <div>
+          <h3 class={classes.title}>{item.title}</h3>
+          <p class={classes.text}>{item.text}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>
