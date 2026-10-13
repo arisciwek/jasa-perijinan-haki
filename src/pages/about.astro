@@ -1,0 +1,9 @@
+---
+import { getEntry, getCollection, render } from 'astro:content';
+import PageLayout from '../components/pages/PageLayout.astro';
+const page = await getEntry('pages', 'about');
+if (!page) throw new Error('Tambahkan src/content/pages/about.md');
+const { Content } = await render(page);
+const articles = await getCollection('articles');
+---
+<PageLayout page={page} articles={articles}><Content /></PageLayout>

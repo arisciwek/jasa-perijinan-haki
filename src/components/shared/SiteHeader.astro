@@ -1,0 +1,18 @@
+---
+const nav = [
+  { href: '/services/', label: 'Layanan' },
+  { href: '/perizinan-usaha/', label: 'Perizinan Usaha' },
+  { href: '/kekayaan-intelektual/', label: 'HAKI' },
+  { href: '/articles/', label: 'Artikel' },
+  { href: '/about/', label: 'Tentang Kami' },
+];
+---
+<header class="border-b border-slate-200 bg-white">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4">
+    <a href="/" class="text-lg font-extrabold tracking-tight text-slate-950">Konsultan<span class="text-blue-700">Legal</span></a>
+    <nav aria-label="Navigasi utama" class="hidden items-center gap-6 md:flex">
+      {nav.map((item) => <a class="text-sm font-medium text-slate-600 hover:text-blue-700" href={item.href}>{item.label}</a>)}
+    </nav>
+    <a href="/contact/" class="rounded-lg bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-800">Konsultasi</a>
+  </div>
+</header>

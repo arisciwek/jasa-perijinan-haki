@@ -1,0 +1,8 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import PageNavIndex from '../../components/pages/PageNavIndex.astro';
+const page = await getEntry('pages', 'services');
+if (!page) throw new Error('Tambahkan src/content/pages/services.md');
+const [services, articles] = await Promise.all([getCollection('services'), getCollection('articles')]);
+---
+<PageNavIndex page={page} services={services} articles={articles} />

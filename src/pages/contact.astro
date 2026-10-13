@@ -1,0 +1,11 @@
+---
+import { getEntry, render } from 'astro:content';
+import PageShell from '../components/shared/PageShell.astro';
+import Breadcrumbs from '../components/shared/Breadcrumbs.astro';
+const page = await getEntry('pages', 'contact');
+if (!page) throw new Error('Tambahkan src/content/pages/contact.md');
+const { Content } = await render(page);
+---
+<PageShell title={page.data.title} description={page.data.description} canonical="/contact/">
+  <section class="mx-auto max-w-3xl px-5 py-12 md:py-16"><Breadcrumbs items={[{ label: page.data.title }]} /><h1 class="text-4xl font-extrabold tracking-tight text-slate-950">{page.data.title}</h1><p class="mt-5 text-lg leading-8 text-slate-600">{page.data.description}</p><div class="prose-content mt-8"><Content /></div><div class="mt-8 rounded-2xl bg-slate-50 p-6"><h2 class="text-xl font-bold text-slate-950">Sampaikan kebutuhan Anda</h2><p class="mt-2 text-slate-600">Ganti tautan berikut dengan nomor WhatsApp atau kanal kontak resmi perusahaan.</p><a class="mt-4 inline-flex rounded-lg bg-blue-700 px-5 py-3 font-semibold text-white" href="https://wa.me/" rel="nofollow">Hubungi melalui WhatsApp</a></div></section>
+</PageShell>

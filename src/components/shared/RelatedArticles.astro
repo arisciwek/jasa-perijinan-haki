@@ -1,0 +1,15 @@
+---
+import ArticleCard from './ArticleCard.astro';
+import type { CollectionEntry } from 'astro:content';
+import { articlesForParent } from '../../utils/related';
+import type { RelatedType } from '../../utils/related';
+const { articles = [], type, id, excludeId, heading = 'Artikel Terkait' } = Astro.props as {
+  articles?: CollectionEntry<'articles'>[];
+  type: RelatedType;
+  id: number;
+  excludeId?: number;
+  heading?: string;
+};
+const chosen = articlesForParent(articles, type, id, 3, excludeId);
+---
+{chosen.length > 0 && <section class="mx-auto max-w-7xl px-5 py-12"><h2 class="mb-6 text-2xl font-extrabold text-slate-950">{heading}</h2><div class="grid gap-5 md:grid-cols-3">{chosen.map((article) => <ArticleCard article={article} />)}</div></section>}

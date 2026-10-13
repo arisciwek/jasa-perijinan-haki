@@ -1,0 +1,23 @@
+---
+import PageShell from '../shared/PageShell.astro';
+import Breadcrumbs from '../shared/Breadcrumbs.astro';
+import PageUpdatedArticles from '../shared/PageUpdatedArticles.astro';
+import HomeCTA from '../home/HomeCTA.astro';
+import { articlesForParent } from '../../utils/related';
+import type { CollectionEntry } from 'astro:content';
+const { page, articles = [] } = Astro.props as {
+  page: CollectionEntry<'pages'>;
+  articles?: CollectionEntry<'articles'>[];
+};
+const picked = articlesForParent(articles, 'page', page.data.id, 3);
+---
+<PageShell title={page.data.seoTitle ?? page.data.title} description={page.data.description} canonical={`/${page.data.slug}/`} image={page.data.image}>
+  <article class="mx-auto max-w-4xl px-5 py-12 md:py-16">
+    <Breadcrumbs items={[{ label: page.data.title }]} />
+    <h1 class="text-4xl font-extrabold tracking-tight text-slate-950 md:text-5xl">{page.data.title}</h1>
+    <p class="mt-5 text-lg leading-8 text-slate-600">{page.data.description}</p>
+    <div class="prose-content mt-10"><slot /></div>
+  </article>
+  {picked.length > 0 && <PageUpdatedArticles articles={picked} heading="Artikel Pilihan" />}
+  <HomeCTA />
+</PageShell>

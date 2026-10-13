@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import PageShell from '../../components/shared/PageShell.astro';
+import Breadcrumbs from '../../components/shared/Breadcrumbs.astro';
+import ArticleCard from '../../components/shared/ArticleCard.astro';
+export async function getStaticPaths() {
+  const categories = await getCollection('categories');
+  return categories.map((category) => ({ params: { slug: category.data.slug }, props: { category } }));
+}
+const { category } = Astro.props;
+const articles = (await getCollection('articles')).filter((a) => !a.data.draft && a.data.category === category.data.slug).sort((a,b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<PageShell title={category.data.title} description={category.data.description} canonical={`/categories/${category.data.slug}/`}>
+  <section class="mx-auto max-w-7xl px-5 py-12"><Breadcrumbs items={[{ label: 'Artikel', href: '/articles/' }, { label: category.data.title }]} /><h1 class="text-4xl font-extrabold text-slate-950">{category.data.title}</h1><p class="mt-4 max-w-3xl leading-7 text-slate-600">{category.data.description}</p><div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{articles.map((article) => <ArticleCard article={article} />)}</div></section>
+</PageShell>

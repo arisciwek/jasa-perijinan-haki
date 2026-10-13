@@ -1,0 +1,42 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageShell from '../../components/shared/PageShell.astro';
+import Breadcrumbs from '../../components/shared/Breadcrumbs.astro';
+import RelatedArticles from '../../components/shared/RelatedArticles.astro';
+import ServiceAside from '../../components/shared/ServiceAside.astro';
+import HomeCTA from '../../components/home/HomeCTA.astro';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.filter((s) => !s.data.draft).map((service) => ({ params: { slug: service.data.slug }, props: { service } }));
+}
+const { service } = Astro.props;
+const { Content } = await render(service);
+const [articles, allServices] = await Promise.all([getCollection('articles'), getCollection('services')]);
+---
+<PageShell title={service.data.title} description={service.data.description} canonical={`/services/${service.data.slug}/`} image={service.data.image}>
+  <section class="mx-auto max-w-7xl px-5 py-12 md:py-16">
+    <Breadcrumbs items={[{ label: 'Layanan', href: '/services/' }, { label: service.data.title }]} />
+    <div class="service-detail mt-6 grid grid-cols-12 gap-8">
+      <div class="service-detail__main col-span-12 lg:col-span-8">
+        <p class="text-sm font-bold uppercase tracking-wider text-blue-700">{service.data.serviceGroup === 'kekayaan-intelektual' ? 'Kekayaan Intelektual' : 'Perizinan Usaha'}</p>
+        <h1 class="mt-3 text-4xl font-extrabold tracking-tight text-slate-950 md:text-5xl">{service.data.title}</h1>
+        <p class="mt-5 text-xl leading-8 text-slate-600">{service.data.description}</p>
+        <div class="prose-content mt-8"><Content /></div>
+        {service.data.benefits.length > 0 && <section class="mt-10"><h2 class="text-2xl font-bold text-slate-950">Manfaat dan ruang lingkup</h2><ul class="mt-4 list-disc space-y-2 pl-6 text-slate-600">{service.data.benefits.map((x) => <li>{x}</li>)}</ul></section>}
+        {service.data.requirements.length > 0 && <section class="mt-10"><h2 class="text-2xl font-bold text-slate-950">Informasi atau dokumen yang perlu disiapkan</h2><ul class="mt-4 list-disc space-y-2 pl-6 text-slate-600">{service.data.requirements.map((x) => <li>{x}</li>)}</ul></section>}
+        {service.data.process.length > 0 && <section class="mt-10"><h2 class="text-2xl font-bold text-slate-950">Tahapan layanan</h2><ol class="mt-4 list-decimal space-y-2 pl-6 text-slate-600">{service.data.process.map((x) => <li>{x}</li>)}</ol></section>}
+        {service.data.faq.length > 0 && <section class="mt-10"><h2 class="text-2xl font-bold text-slate-950">Pertanyaan yang sering diajukan</h2><div class="mt-4 space-y-4">{service.data.faq.map((item) => <details class="rounded-xl border border-slate-200 p-5"><summary class="cursor-pointer font-semibold text-slate-900">{item.question}</summary><p class="mt-3 leading-7 text-slate-600">{item.answer}</p></details>)}</div></section>}
+        <div class="mt-12">
+          <RelatedArticles articles={articles} type="service" id={service.data.id} heading="Artikel terkait layanan ini" />
+        </div>
+      </div>
+      <div class="service-detail__aside col-span-12 lg:col-span-4">
+        <div class="sticky top-8">
+          <ServiceAside currentService={service} services={allServices} />
+        </div>
+      </div>
+    </div>
+  </section>
+  <HomeCTA title="Perlu informasi lebih lanjut?" description="Diskusikan kebutuhan Anda untuk mendapatkan informasi tentang ruang lingkup dan tahapan layanan." buttonLabel={service.data.ctaLabel} />
+</PageShell>

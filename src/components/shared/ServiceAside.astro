@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from 'astro:content';
+const { currentService, services = [] } = Astro.props as {
+  currentService: CollectionEntry<'services'>;
+  services?: CollectionEntry<'services'>[];
+};
+const others = services
+  .filter((s) => !s.data.draft && s.data.serviceGroup === currentService.data.serviceGroup && s.data.slug !== currentService.data.slug)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+<aside class="service-aside space-y-6" aria-label="Informasi tambahan layanan">
+  {others.length > 0 && (
+    <div class="service-aside__nav rounded-2xl border border-slate-200 bg-white p-5">
+      <h2 class="service-aside__title text-sm font-bold uppercase tracking-wider text-slate-950">Layanan Lainnya</h2>
+      <ul class="service-aside__list mt-3 space-y-1">
+        {others.map((service) => (
+          <li class="service-aside__item"><a class="service-aside__link block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-700" href={`/services/${service.data.slug}/`}>{service.data.title}</a></li>
+        ))}
+      </ul>
+    </div>
+  )}
+  <div class="service-aside__cta rounded-2xl bg-blue-700 p-5 text-white">
+    <h2 class="service-aside__cta-title text-base font-bold">Perlu bantuan?</h2>
+    <p class="service-aside__cta-desc mt-2 text-sm leading-6 text-blue-100">Diskusikan kebutuhan Anda untuk mengetahui langkah berikutnya.</p>
+    <a class="service-aside__cta-link mt-4 inline-block rounded-lg bg-white px-4 py-2 text-sm font-bold text-blue-800 hover:bg-blue-50" href="/contact/">Hubungi Kami</a>
+  </div>
+</aside>

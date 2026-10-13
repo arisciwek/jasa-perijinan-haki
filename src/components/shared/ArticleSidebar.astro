@@ -1,0 +1,41 @@
+---
+import type { MarkdownHeading } from 'astro';
+const { headings = [], service = null, authorName = '', authorBio = '' } = Astro.props as {
+  headings?: MarkdownHeading[];
+  service?: { data: { slug: string; title: string; description: string } } | null;
+  authorName?: string;
+  authorBio?: string;
+};
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+<aside class="article-sidebar space-y-6" aria-label="Navigasi artikel">
+  {toc.length > 0 && (
+    <div class="article-sidebar__toc rounded-2xl border border-slate-200 bg-white p-5">
+      <h2 class="article-sidebar__title text-sm font-bold uppercase tracking-wider text-slate-950">Daftar Isi</h2>
+      <nav class="article-sidebar__nav mt-3" aria-label="Daftar isi artikel">
+        <ul class="article-sidebar__list space-y-2 text-sm">
+          {toc.map((heading) => (
+            <li class="article-sidebar__item">
+              <a class="article-sidebar__link text-slate-600 hover:text-blue-700" href={`#${heading.slug}`}>{heading.text}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  )}
+  {service && (
+    <div class="article-sidebar__service rounded-2xl border border-slate-200 bg-white p-5">
+      <h2 class="article-sidebar__title text-sm font-bold uppercase tracking-wider text-slate-950">Layanan Terkait</h2>
+      <p class="article-sidebar__service-name mt-3 text-base font-semibold text-slate-900">{service.data.title}</p>
+      <p class="article-sidebar__service-desc mt-1 text-sm leading-6 text-slate-600">{service.data.description}</p>
+      <a class="article-sidebar__service-link mt-3 inline-block text-sm font-semibold text-blue-700 hover:text-blue-900" href={`/services/${service.data.slug}/`}>Lihat layanan →</a>
+    </div>
+  )}
+  {authorName && (
+    <div class="article-sidebar__author rounded-2xl border border-slate-200 bg-white p-5">
+      <h2 class="article-sidebar__title text-sm font-bold uppercase tracking-wider text-slate-950">Penulis</h2>
+      <p class="article-sidebar__author-name mt-3 font-semibold text-slate-900">{authorName}</p>
+      {authorBio && <p class="article-sidebar__author-bio mt-1 text-sm leading-6 text-slate-600">{authorBio}</p>}
+    </div>
+  )}
+</aside>
