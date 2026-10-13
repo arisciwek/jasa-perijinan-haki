@@ -1,0 +1,7 @@
+---
+const { src, alt, caption } = Astro.props as { src: string; alt: string; caption?: string };
+---
+<figure class="mt-5">
+  <img src={src} alt={alt} loading="lazy" decoding="async" width="800" height="600" class="w-full rounded-xl ring-1 ring-slate-200" />
+  {caption && <figcaption class="mt-2 text-sm text-slate-500">{caption}</figcaption>}
+</figure>

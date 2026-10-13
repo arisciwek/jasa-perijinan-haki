@@ -46,6 +46,17 @@ blocks:
         src: "/images/articles/dokumen-legalitas-usaha.svg"
         alt: "Ilustrasi persiapan dokumen legalitas usaha"
         caption: "Pemetaan dokumen dilakukan menurut kelompok informasi usaha."
+  - component: "faq"
+    id: "tanya-jawab"
+    heading: "Pertanyaan yang sering diajukan"
+    icon: "messages"
+    items:
+      - question: "Apakah daftar dokumen sama untuk semua jenis usaha?"
+        answer: "Tidak. Daftar dokumen bergantung pada bentuk badan usaha, kegiatan, dan jenis izin yang akan diurus."
+      - question: "Apakah dokumen dapat dikirim bertahap?"
+        answer: "Ya. Dokumen inti dapat dikirim lebih dahulu, sisanya menyusul sesuai permintaan dan kesepakatan."
+      - question: "Apakah dokumen yang dikirim aman?"
+        answer: "Kirim dokumen melalui kanal konsultasi resmi dan pastikan yang dikirim adalah salinan yang diperlukan."
 ---
 ## Mengapa dokumen perlu dipetakan sejak awal?
 

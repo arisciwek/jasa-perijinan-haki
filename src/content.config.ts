@@ -23,17 +23,26 @@ const articles = defineCollection({
     tags: z.array(z.string()).default([]),
     relatedType: z.enum(['service', 'page', 'article']).optional(),
     relatedId: z.number().int().positive().optional(),
-    blocks: z.array(z.object({
-      component: z.string().min(1),
-      id: z.string().min(1).optional(),
-      heading: z.string().min(1),
-      icon: z.string().optional(),
-      body: z.array(z.discriminatedUnion('type', [
-        z.object({ type: z.literal('p'), text: z.string().min(1) }),
-        z.object({ type: z.literal('list'), ordered: z.boolean().default(false), items: z.array(z.string().min(1)).min(1) }),
-        z.object({ type: z.literal('image'), src: z.string().min(1), alt: z.string().min(1), caption: z.string().optional() }),
-      ])).default([]),
-    })).default([]),
+    blocks: z.array(z.discriminatedUnion('component', [
+      z.object({
+        component: z.literal('card'),
+        id: z.string().min(1).optional(),
+        heading: z.string().min(1),
+        icon: z.string().optional(),
+        body: z.array(z.discriminatedUnion('type', [
+          z.object({ type: z.literal('p'), text: z.string().min(1) }),
+          z.object({ type: z.literal('list'), ordered: z.boolean().default(false), items: z.array(z.string().min(1)).min(1) }),
+          z.object({ type: z.literal('image'), src: z.string().min(1), alt: z.string().min(1), caption: z.string().optional() }),
+        ])).default([]),
+      }),
+      z.object({
+        component: z.literal('faq'),
+        id: z.string().min(1).optional(),
+        heading: z.string().min(1),
+        icon: z.string().optional(),
+        items: z.array(z.object({ question: z.string().min(1), answer: z.string().min(1) })).min(1),
+      }),
+    ])).default([]),
   }),
 });
 

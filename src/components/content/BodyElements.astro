@@ -1,0 +1,15 @@
+---
+import ElementParagraph from './ElementParagraph.astro';
+import ElementList from './ElementList.astro';
+import ElementFigure from './ElementFigure.astro';
+const { body = [] } = Astro.props as { body?: any[] };
+const elements: Record<string, any> = {
+  p: ElementParagraph,
+  list: ElementList,
+  image: ElementFigure,
+};
+const rendered = (body ?? [])
+  .map((element: any) => ({ ...element, C: elements[element.type] }))
+  .filter((element: { C?: any }) => !!element.C);
+---
+{rendered.map(({ C, type, ...props }: { C: any; type: string; [key: string]: any }) => <C {...props} />)}
