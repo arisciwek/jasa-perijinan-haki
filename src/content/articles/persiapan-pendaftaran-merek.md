@@ -14,6 +14,18 @@ draft: false
 image: "/images/articles/persiapan-pendaftaran-merek.svg"
 relatedType: "service"
 relatedId: 204
+blocks:
+  - component: "stats"
+    id: "angka-penting"
+    heading: "Angka yang perlu diketahui"
+    icon: "certificate"
+    items:
+      - value: "10 tahun"
+        label: "Masa perlindungan merek sejak penerimaan permohonan, dapat diperpanjang"
+      - value: "45 kelas"
+        label: "Kelas klasifikasi barang dan jasa sebagai acuan cakupan permohonan"
+      - value: "1 merek"
+        label: "Satu permohonan untuk satu merek; kelas yang dicakup dapat lebih dari satu"
 ---
 ## Mulai dari identitas merek
 

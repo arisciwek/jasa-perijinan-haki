@@ -4,6 +4,7 @@ import CtaBlock from './shared/CtaBlock.astro';
 import TableBlock from './shared/TableBlock.astro';
 import NoteBlock from './shared/NoteBlock.astro';
 import StepsBlock from './shared/StepsBlock.astro';
+import StatsBlock from './shared/StatsBlock.astro';
 
 const blocks: Record<string, any> = {
   card: ContentCard,
@@ -12,6 +13,7 @@ const blocks: Record<string, any> = {
   table: TableBlock,
   note: NoteBlock,
   steps: StepsBlock,
+  stats: StatsBlock,
 };
 
 export default blocks;

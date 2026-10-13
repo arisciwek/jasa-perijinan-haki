@@ -121,6 +121,22 @@ const articles = defineCollection({
           text: z.string().min(1).optional(),
         }).optional(),
       }),
+      z.object({
+        component: z.literal('stats'),
+        id: z.string().min(1).optional(),
+        heading: z.string().min(1).optional(),
+        icon: z.string().optional(),
+        items: z.array(z.object({ value: z.string().min(1), label: z.string().min(1) })).min(1),
+        class: z.object({
+          section: z.string().min(1).optional(),
+          icon: z.string().min(1).optional(),
+          heading: z.string().min(1).optional(),
+          grid: z.string().min(1).optional(),
+          item: z.string().min(1).optional(),
+          value: z.string().min(1).optional(),
+          label: z.string().min(1).optional(),
+        }).optional(),
+      }),
     ])).default([]),
   }),
 });

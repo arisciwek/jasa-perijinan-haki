@@ -1,0 +1,60 @@
+---
+/**
+ * StatsBlock — block "stats" (angka besar + label singkat).
+ *
+ * Merender: ikon + heading (opsional) + grid angka besar dengan label.
+ * Cocok untuk menyoroti data kunci, mis. masa perlindungan atau jumlah
+ * kelas klasifikasi. Heading opsional → hanya masuk "Daftar Isi" bila diisi.
+ *
+ * Props:
+ * - id?:     string — anchor HTML & slug TOC (jika heading diisi)
+ * - heading?: string — judul h2 section (opsional)
+ * - icon?:   string — nama ikon Tabler, default "target" (daftar: Icon.astro)
+ * - items:   Array<{ value: string; label: string }> — min. 1 (wajib)
+ * - class?:  object — kelas tiap bagian; key yang tidak diisi memakai DEFAULT:
+ *              section: "mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8"
+ *              icon:    "inline-flex rounded-xl bg-white p-2.5 text-blue-700 shadow-sm"
+ *              heading: "mt-4 text-2xl font-extrabold tracking-tight text-slate-950"
+ *              grid:    "mt-4 grid gap-4 sm:grid-cols-3"   (atur kolom sesuai jumlah item)
+ *              item:    "rounded-xl bg-white p-4 text-center ring-1 ring-blue-100"
+ *              value:   "text-3xl font-extrabold text-blue-700"
+ *              label:   "mt-1 text-sm leading-6 text-slate-600"
+ *
+ * Contoh pemakaian di frontmatter artikel (src/content/articles/*.md):
+ *   blocks:
+ *     - component: "stats"
+ *       id: "angka-penting"
+ *       heading: "Angka yang perlu diketahui"
+ *       items:
+ *         - value: "10 tahun"
+ *           label: "Masa perlindungan merek, dapat diperpanjang"
+ *         - value: "45 kelas"
+ *           label: "Kelas klasifikasi barang dan jasa sebagai acuan cakupan"
+ *
+ * Atur kolom grid lewat class.grid, mis. "mt-4 grid gap-4 sm:grid-cols-2".
+ */
+import Icon from './Icon.astro';
+const { id, heading, icon = 'target', items = [], class: cls = {} } = Astro.props as { id?: string; heading?: string; icon?: string; class?: Record<string, string>; items?: { value: string; label: string }[] };
+const classes = {
+  section: 'mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8',
+  icon: 'inline-flex rounded-xl bg-white p-2.5 text-blue-700 shadow-sm',
+  heading: 'mt-4 text-2xl font-extrabold tracking-tight text-slate-950',
+  grid: 'mt-4 grid gap-4 sm:grid-cols-3',
+  item: 'rounded-xl bg-white p-4 text-center ring-1 ring-blue-100',
+  value: 'text-3xl font-extrabold text-blue-700',
+  label: 'mt-1 text-sm leading-6 text-slate-600',
+  ...cls,
+};
+---
+<section id={id} class={classes.section}>
+  <span class={classes.icon}><Icon name={icon ?? 'target'} size={24} /></span>
+  {heading && <h2 class={classes.heading}>{heading}</h2>}
+  <div class={classes.grid}>
+    {items.map((item) => (
+      <div class={classes.item}>
+        <p class={classes.value}>{item.value}</p>
+        <p class={classes.label}>{item.label}</p>
+      </div>
+    ))}
+  </div>
+</section>
