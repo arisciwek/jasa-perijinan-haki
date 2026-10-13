@@ -14,6 +14,12 @@ draft: false
 image: "/images/articles/memahami-perizinan-oss.svg"
 relatedType: "service"
 relatedId: 202
+blocks:
+  - component: "note"
+    id: "catatan-klasifikasi"
+    variant: "warning"
+    title: "Perhatian"
+    text: "Klasifikasi kegiatan yang kurang tepat berdampak pada jenis izin, kewajiban, hingga insentif yang bisa diterima. Periksa ulang uraian kegiatan sebelum mengajukan."
 ---
 ## Apa yang perlu dipahami sebelum memulai?
 
