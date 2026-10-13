@@ -1,4 +1,37 @@
 ---
+/**
+ * ContentCard — block "card" (shell section serbaguna).
+ *
+ * Merender: ikon + heading h2 + deretan elemen konten bertipe (`body`),
+ * yang didelegasikan ke BodyElements (nested component, tanpa if di sini).
+ *
+ * Props:
+ * - id?:     string — anchor HTML & slug TOC; fallback otomatis `${component}-${index+1}`
+ * - heading: string — judul h2 section (wajib)
+ * - icon?:   string — nama ikon Tabler, default "circle-check" (daftar: Icon.astro)
+ * - body?:   Array elemen bertipe:
+ *              { type: "p",     text: string }
+ *              { type: "list",  ordered?: boolean, items: string[] }   (min. 1 item)
+ *              { type: "image", src: string, alt: string, caption?: string }
+ *
+ * Contoh pemakaian di frontmatter artikel (src/content/articles/*.md):
+ *   blocks:
+ *     - component: "card"
+ *       id: "prinsip-penyimpanan"
+ *       heading: "Prinsip penyimpanan dokumen"
+ *       icon: "shield-check"
+ *       body:
+ *         - type: "p"
+ *           text: "Paragraf pertama..."
+ *       - type: "list"
+ *           items: ["Item satu", "Item dua"]
+ *       - type: "image"
+ *           src: "/images/contoh.svg"
+ *           alt: "Keterangan aksesibel gambar"
+ *           caption: "Keterangan gambar"
+ *
+ * Catatan: teks elemen dirender apa adanya (tanpa format markdown inline).
+ */
 import Icon from './Icon.astro';
 import BodyElements from '../content/BodyElements.astro';
 const { id, heading, icon = 'circle-check', body = [] } = Astro.props as { id?: string; heading: string; icon?: string; body?: any[] };

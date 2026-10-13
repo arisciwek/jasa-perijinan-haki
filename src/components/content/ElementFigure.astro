@@ -1,4 +1,12 @@
 ---
+/**
+ * ElementFigure — elemen `{ type: "image", src, alt, caption? }` di block "card".
+ * Props:
+ * - src: string (wajib) — path gambar dari /public, contoh: "/images/contoh.svg"
+ * - alt: string (wajib) — teks alternatif aksesibel
+ * - caption?: string — keterangan <figcaption> di bawah gambar
+ * Gambar dirender lazy + async, ring halus di tepi.
+ */
 const { src, alt, caption } = Astro.props as { src: string; alt: string; caption?: string };
 ---
 <figure class="mt-5">

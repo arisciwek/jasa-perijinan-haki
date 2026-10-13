@@ -1,4 +1,14 @@
 ---
+/**
+ * Layout artikel: sidebar TOC/layanan/penulis + konten + block dinamis.
+ *
+ * Block berasal dari frontmatter artikel (`blocks: [...]`), dirender
+ * generik via src/components/blocks.ts: <C id={anchor} {...props} />.
+ * - anchor = block.id ?? `${component}-${index+1}` (unik per halaman)
+ * - component tak terdaftar di blocks.ts dilewati (tidak merender apa pun)
+ * - heading tiap block otomatis masuk "Daftar Isi" di sidebar (depth 2)
+ * Daftar block yang tersedia + contoh frontmatter: lihat blocks.ts.
+ */
 import PageShell from '../shared/PageShell.astro';
 import Breadcrumbs from '../shared/Breadcrumbs.astro';
 import RelatedArticles from '../shared/RelatedArticles.astro';

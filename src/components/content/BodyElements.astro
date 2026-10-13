@@ -1,4 +1,19 @@
 ---
+/**
+ * BodyElements — kompositor elemen konten block "card".
+ *
+ * Menerima array `body` bertipe dari frontmatter lalu memanggil komponen
+ * elemen sesuai `type` (registry di sini, cermin dari blocks.ts):
+ *   p     -> ElementParagraph  { text }
+ *   list  -> ElementList       { ordered?, items }
+ *   image -> ElementFigure     { src, alt, caption? }
+ *
+ * Elemen dengan `type` tak dikenal dilewati (tidak merender apa pun).
+ * Dipanggil dari ContentCard.astro; tidak dipanggil langsung dari markdown.
+ *
+ * Props:
+ * - body?: Array elemen bertipe (lihat schema `blocks` di src/content.config.ts).
+ */
 import ElementParagraph from './ElementParagraph.astro';
 import ElementList from './ElementList.astro';
 import ElementFigure from './ElementFigure.astro';

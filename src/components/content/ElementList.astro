@@ -1,4 +1,11 @@
 ---
+/**
+ * ElementList — elemen `{ type: "list", ordered?, items }` di block "card".
+ * Props:
+ * - ordered?: boolean — false (default) -> <ul> bullet; true -> <ol> bernomor
+ * - items: string[] (wajib, min. 1) — teks per item, tanpa markdown inline.
+ * Contoh: - type: "list" \n ordered: true \n items: ["Satu", "Dua"]
+ */
 const { ordered = false, items = [] } = Astro.props as { ordered?: boolean; items: string[] };
 const Tag = ordered ? 'ol' : 'ul';
 const classes = ordered

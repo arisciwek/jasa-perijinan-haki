@@ -1,4 +1,29 @@
 ---
+/**
+ * FaqBlock — block "faq" (accordion tanya-jawab).
+ *
+ * Merender: ikon + heading h2 + daftar accordion <details>/<summary>
+ * native — tanpa JavaScript, keyboard- & screen-reader-friendly;
+ * chevron berotasi otomatis saat item terbuka (group-open:rotate-180).
+ *
+ * Props:
+ * - id?:     string — anchor HTML & slug TOC; fallback otomatis `${component}-${index+1}`
+ * - heading: string — judul h2 section (wajib)
+ * - icon?:   string — nama ikon Tabler, default "messages" (daftar: Icon.astro)
+ * - items:   Array<{ question: string; answer: string }> — min. 1 item (wajib)
+ *
+ * Contoh pemakaian di frontmatter artikel (src/content/articles/*.md):
+ *   blocks:
+ *     - component: "faq"
+ *       id: "tanya-jawab"
+ *       heading: "Pertanyaan yang sering diajukan"
+ *       icon: "messages"
+ *       items:
+ *         - question: "Apakah daftar dokumen sama untuk semua jenis usaha?"
+ *           answer: "Tidak. Daftar menyesuaikan bentuk badan usaha dan kegiatan."
+ *         - question: "Apakah dokumen dapat dikirim bertahap?"
+ *           answer: "Ya, dokumen inti lebih dahulu, sisanya menyusul."
+ */
 import Icon from './Icon.astro';
 const { id, heading, icon = 'messages', items = [] } = Astro.props as { id?: string; heading: string; icon?: string; items?: { question: string; answer: string }[] };
 ---
