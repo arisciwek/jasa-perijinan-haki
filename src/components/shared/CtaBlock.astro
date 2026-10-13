@@ -1,0 +1,51 @@
+---
+/**
+ * CtaBlock — block "cta" (ajakan bertindak, penutup artikel / sisipan).
+ *
+ * Merender: ikon + heading (opsional) + pesan + tombol WhatsApp.
+ * Link WA dibangun dari nomor di src/config.ts (site.whatsapp) + `message`
+ * dari frontmatter (di-encode). CTA bisa diletakkan di posisi mana pun —
+ * urutan blocks di frontmatter menentukan posisinya, tidak harus di bawah.
+ *
+ * Props:
+ * - id?:     string — anchor HTML; TIDAK masuk TOC
+ * - heading?: string — judul h2 section (opsional; CTA boleh tanpa judul)
+ * - icon?:   string — nama ikon Tabler, default "messages"
+ * - message: string — teks pesan WA (wajib); otomatis di-encode ke URL
+ * - button?: string — label tombol, default "Konsultasi via WhatsApp"
+ * - class?:  object — kelas tiap bagian; key yang tidak diisi memakai DEFAULT:
+ *              section: "mt-10 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-6 md:p-8"
+ *              icon:    "inline-flex rounded-xl bg-white p-2.5 text-emerald-700 shadow-sm"
+ *              heading: "mt-4 text-2xl font-extrabold tracking-tight text-slate-950"
+ *              message: "mt-3 leading-8 text-slate-600"
+ *              button:  "mt-5 inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 font-semibold text-white hover:bg-emerald-700"
+ *
+ * Contoh pemakaian di frontmatter artikel (src/content/articles/*.md):
+ *   blocks:
+ *     - component: "cta"
+ *       id: "penutup"
+ *       heading: "Siap menyusun dokumen legalitas Anda?"
+ *       message: "Halo, saya ingin konsultasi mengenai dokumen legalitas usaha."
+ *       button: "Konsultasi via WhatsApp"
+ *
+ * Nomor WA: src/config.ts (site.whatsapp). Variasi bentuk lain cukup override `class`.
+ */
+import Icon from './Icon.astro';
+import { site } from '../../config';
+const { id, heading, icon = 'messages', message, button = 'Konsultasi via WhatsApp', class: cls = {} } = Astro.props as { id?: string; heading?: string; icon?: string; class?: Record<string, string>; message: string; button?: string };
+const classes = {
+  section: 'mt-10 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-6 md:p-8',
+  icon: 'inline-flex rounded-xl bg-white p-2.5 text-emerald-700 shadow-sm',
+  heading: 'mt-4 text-2xl font-extrabold tracking-tight text-slate-950',
+  message: 'mt-3 leading-8 text-slate-600',
+  button: 'mt-5 inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 font-semibold text-white transition-colors hover:bg-emerald-700',
+  ...cls,
+};
+const href = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`;
+---
+<section id={id} class={classes.section}>
+  <span class={classes.icon}><Icon name={icon ?? 'messages'} size={24} /></span>
+  {heading && <h2 class={classes.heading}>{heading}</h2>}
+  <p class={classes.message}>{message}</p>
+  <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`} target="_blank" rel="noopener nofollow" class={classes.button}><Icon name="messages" size={18} />{button}</a>
+</section>

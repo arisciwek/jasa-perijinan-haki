@@ -69,5 +69,10 @@ blocks:
         answer: "Ya. Dokumen inti dapat dikirim lebih dahulu, sisanya menyusul sesuai permintaan dan kesepakatan."
       - question: "Apakah dokumen yang dikirim aman?"
         answer: "Kirim dokumen melalui kanal konsultasi resmi dan pastikan yang dikirim adalah salinan yang diperlukan."
+  - component: "cta"
+    id: "penutup"
+    heading: "Siap menyusun dokumen legalitas Anda?"
+    message: "Halo, saya ingin konsultasi mengenai dokumen legalitas usaha yang perlu dipersiapkan."
+    button: "Konsultasi via WhatsApp"
 ---
 

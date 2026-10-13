@@ -57,6 +57,21 @@ const articles = defineCollection({
         }).optional(),
         items: z.array(z.object({ question: z.string().min(1), answer: z.string().min(1) })).min(1),
       }),
+      z.object({
+        component: z.literal('cta'),
+        id: z.string().min(1).optional(),
+        heading: z.string().min(1).optional(),
+        icon: z.string().optional(),
+        message: z.string().min(1),
+        button: z.string().min(1).optional(),
+        class: z.object({
+          section: z.string().min(1).optional(),
+          icon: z.string().min(1).optional(),
+          heading: z.string().min(1).optional(),
+          message: z.string().min(1).optional(),
+          button: z.string().min(1).optional(),
+        }).optional(),
+      }),
     ])).default([]),
   }),
 });

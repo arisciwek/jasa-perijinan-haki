@@ -18,7 +18,7 @@ const { article, articles = [], authorName, authorBio = '', service = null, head
 const blockComponents = (article.data.blocks ?? [])
   .map((block: { component: string; id?: string; heading: string; icon?: string; body?: any[] }, index: number) => ({ ...block, anchor: block.id ?? `${block.component}-${index + 1}`, C: blocks[block.component] }))
   .filter((block: { C?: any }) => !!block.C);
-const toc = [...headings.filter((h: { depth: number }) => h.depth <= 3), ...blockComponents.map((block: { anchor: string; heading: string }) => ({ depth: 2, slug: block.anchor, text: block.heading }))];
+const toc = [...headings.filter((h: { depth: number }) => h.depth <= 3), ...blockComponents.filter((block: { heading?: string }) => !!block.heading).map((block: { anchor: string; heading: string }) => ({ depth: 2, slug: block.anchor, text: block.heading }))];
 ---
 <PageShell title={article.data.title} description={article.data.description} canonical={`/articles/${article.data.slug}/`} image={article.data.image}>
   <div class="mx-auto max-w-7xl px-5 py-12 md:py-16">
@@ -38,7 +38,6 @@ const toc = [...headings.filter((h: { depth: number }) => h.depth <= 3), ...bloc
           <div class="prose-content mt-10"><slot /></div>
           {blockComponents.map(({ C, anchor, ...block }: { C: any; anchor: string; [key: string]: any }) => <C id={anchor} {...block} />)}
           {article.data.relatedType && article.data.relatedId ? <RelatedArticles articles={articles} type={article.data.relatedType} id={article.data.relatedId} excludeId={article.data.id} /> : null}
-          <div class="mt-12"><a href="/contact/" class="font-semibold text-blue-700">Diskusikan kebutuhan Anda →</a></div>
         </article>
       </div>
     </div>
