@@ -14,6 +14,15 @@ draft: false
 image: "/images/articles/perbedaan-merek-hak-cipta-paten.svg"
 relatedType: "service"
 relatedId: 204
+blocks:
+  - component: "table"
+    id: "perbandingan"
+    heading: "Perbandingan singkat"
+    head: ["Aspek", "Merek", "Hak Cipta", "Paten"]
+    rows:
+      - ["Objek perlindungan", "Tanda pembeda barang atau jasa, mis. nama dan logo", "Karya kreatif, mis. tulisan, musik, gambar", "Invensi yang memenuhi persyaratan teknis"]
+      - ["Cara memperoleh", "Pendaftaran", "Lahir saat karya tercipta; pencatatan sebagai bukti", "Pengajuan uraian teknis disertai penelaahan"]
+      - ["Masa perlindungan", "10 tahun, dapat diperpanjang", "Seumur hidup pencipta dan berlanjut sesuai ketentuan", "20 tahun sejak tanggal penerimaan"]
 ---
 ## Mengapa ketiganya berbeda?
 
