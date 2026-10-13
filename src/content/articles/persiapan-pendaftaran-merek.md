@@ -11,7 +11,7 @@ author: "redaksi"
 category: "kekayaan-intelektual"
 tags: ["merek", "HAKI"]
 draft: false
-image: "/images/articles/persiapan-pendaftaran-merek.jpg"
+image: "/images/articles/persiapan-pendaftaran-merek.svg"
 relatedType: "service"
 relatedId: 204
 ---

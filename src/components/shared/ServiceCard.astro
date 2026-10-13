@@ -1,8 +1,19 @@
 ---
+import Icon from './Icon.astro';
 const { service } = Astro.props;
+const iconBySlug: Record<string, string> = {
+  'pendirian-badan-usaha': 'building',
+  'perizinan-oss': 'building-community',
+  'perizinan-sektoral': 'shield-check',
+  'pendaftaran-merek': 'certificate',
+  'hak-cipta': 'file-text',
+  'paten': 'atom',
+};
+const icon = iconBySlug[service.data.slug] ?? 'file-stack';
 ---
 <article class="rounded-2xl border border-slate-200 bg-white p-6 hover:border-blue-200 hover:shadow-lg">
-  <p class="text-xs font-bold uppercase tracking-wider text-blue-700">{service.data.serviceGroup === 'kekayaan-intelektual' ? 'Kekayaan Intelektual' : 'Perizinan Usaha'}</p>
+  <span class="inline-flex rounded-xl bg-blue-50 p-2.5 text-blue-700"><Icon name={icon} size={24} /></span>
+  <p class="mt-4 text-xs font-bold uppercase tracking-wider text-blue-700">{service.data.serviceGroup === 'kekayaan-intelektual' ? 'Kekayaan Intelektual' : 'Perizinan Usaha'}</p>
   <h3 class="mt-3 text-xl font-bold text-slate-950"><a href={`/services/${service.data.slug}/`} class="hover:text-blue-700">{service.data.title}</a></h3>
   <p class="mt-3 text-sm leading-6 text-slate-600">{service.data.description}</p>
   <a href={`/services/${service.data.slug}/`} class="mt-5 inline-flex font-semibold text-blue-700">Pelajari layanan →</a>

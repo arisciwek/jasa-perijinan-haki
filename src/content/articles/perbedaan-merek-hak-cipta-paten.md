@@ -11,7 +11,7 @@ author: "redaksi"
 category: "kekayaan-intelektual"
 tags: ["merek", "hak cipta", "paten"]
 draft: false
-image: "/images/articles/perbedaan-merek-hak-cipta-paten.jpg"
+image: "/images/articles/perbedaan-merek-hak-cipta-paten.svg"
 relatedType: "service"
 relatedId: 204
 ---

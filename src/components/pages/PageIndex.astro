@@ -8,7 +8,7 @@ import PageUpdatedArticles from '../shared/PageUpdatedArticles.astro';
 import HomeCTA from '../home/HomeCTA.astro';
 const { page, services, articles } = Astro.props;
 ---
-<PageShell title={page.data.seoTitle ?? page.data.title} description={page.data.description} canonical="/">
+<PageShell title={page.data.seoTitle ?? page.data.title} description={page.data.description} canonical="/" image={page.data.image}>
   <HomeHero title={page.data.title} description={page.data.description} />
   <HomeServices services={services} />
   <HomeAdvantages />

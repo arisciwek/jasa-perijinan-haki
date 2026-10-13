@@ -4,7 +4,7 @@ const {
   title = 'Konsultan Perizinan Usaha & HAKI',
   description = 'Pendampingan perizinan usaha dan perlindungan kekayaan intelektual.',
   canonical,
-  image = '/images/og-default.jpg',
+  image = '/images/og-default.svg',
 } = Astro.props;
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const canonicalUrl = canonical ? new URL(canonical, siteUrl || Astro.url).toString() : Astro.url.toString();

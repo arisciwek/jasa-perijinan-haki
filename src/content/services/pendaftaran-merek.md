@@ -8,7 +8,7 @@ description: "Informasi dan pendampingan tahapan pendaftaran merek untuk membant
 serviceGroup: "kekayaan-intelektual"
 order: 1
 draft: false
-image: "/images/services/pendaftaran-merek.jpg"
+image: "/images/services/pendaftaran-merek.svg"
 benefits: ["Membahas identitas merek dan barang atau jasa yang akan dilindungi.", "Membantu memetakan kelas merek yang perlu ditelaah.", "Menjelaskan tahapan umum pendaftaran dan potensi tindak lanjut."]
 requirements: ["Nama atau logo merek yang direncanakan.", "Daftar barang atau jasa yang menggunakan merek.", "Identitas pemohon dan dokumen pendukung sesuai persyaratan."]
 process: ["Diskusi awal tentang merek dan penggunaan.", "Pemeriksaan awal kebutuhan pencarian dan klasifikasi.", "Persiapan informasi serta dokumen.", "Pemantauan tahapan sesuai layanan yang disepakati."]

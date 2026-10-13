@@ -10,7 +10,7 @@ navLabel: "Beranda"
 pubDate: 2026-10-13T00:00:00+07:00
 updatedDate: 2026-10-13T00:00:00+07:00
 draft: false
-image: "/images/home-og.jpg"
+image: "/images/home-og.svg"
 keywords:
   - konsultan perizinan usaha
   - konsultan HAKI

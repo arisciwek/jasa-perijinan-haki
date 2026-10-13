@@ -8,7 +8,7 @@ description: "Pemetaan kebutuhan izin sektoral atau sertifikasi berdasarkan bida
 serviceGroup: "perizinan-usaha"
 order: 3
 draft: false
-image: "/images/services/perizinan-sektoral.jpg"
+image: "/images/services/perizinan-sektoral.svg"
 benefits: ["Mengenali kemungkinan persyaratan tambahan berdasarkan sektor.", "Menyusun daftar informasi dan dokumen yang perlu diverifikasi.", "Membantu merencanakan urutan proses pengurusan."]
 requirements: ["Bidang usaha dan uraian kegiatan.", "Lokasi serta cakupan operasional.", "Dokumen legalitas dasar dan dokumen teknis jika relevan."]
 process: ["Pemetaan sektor dan aktivitas usaha.", "Identifikasi instansi dan ketentuan yang relevan.", "Penyusunan daftar dokumen dan tahapan.", "Tindak lanjut sesuai ruang lingkup yang disepakati."]

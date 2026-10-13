@@ -11,7 +11,7 @@ author: "redaksi"
 category: "perizinan-usaha"
 tags: ["OSS", "izin usaha"]
 draft: false
-image: "/images/articles/memahami-perizinan-oss.jpg"
+image: "/images/articles/memahami-perizinan-oss.svg"
 relatedType: "service"
 relatedId: 202
 ---

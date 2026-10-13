@@ -11,7 +11,7 @@ author: "redaksi"
 category: "perizinan-usaha"
 tags: ["legalitas usaha", "dokumen usaha"]
 draft: false
-image: "/images/articles/dokumen-legalitas-usaha.jpg"
+image: "/images/articles/dokumen-legalitas-usaha.svg"
 relatedType: "service"
 relatedId: 201
 ---

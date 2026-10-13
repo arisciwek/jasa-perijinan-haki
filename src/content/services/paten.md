@@ -8,7 +8,7 @@ description: "Informasi awal mengenai perlindungan invensi melalui paten, termas
 serviceGroup: "kekayaan-intelektual"
 order: 3
 draft: false
-image: "/images/services/paten.jpg"
+image: "/images/services/paten.svg"
 benefits: ["Membahas gambaran invensi dan tujuan perlindungannya.", "Mengidentifikasi kebutuhan dokumen teknis untuk ditelaah.", "Memetakan tahapan umum dan pertanyaan yang perlu dijawab."]
 requirements: ["Uraian invensi dan cara kerjanya.", "Gambar atau dokumen teknis yang tersedia.", "Informasi pengungkapan atau publikasi sebelumnya jika ada."]
 process: ["Konsultasi awal tentang invensi.", "Pemetaan informasi teknis yang tersedia.", "Penelaahan lebih lanjut oleh pihak yang kompeten sesuai ruang lingkup.", "Pembahasan opsi dan tahapan pengajuan."]

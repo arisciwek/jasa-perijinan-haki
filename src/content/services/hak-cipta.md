@@ -8,7 +8,7 @@ description: "Pendampingan informasi mengenai pencatatan hak cipta atas karya ya
 serviceGroup: "kekayaan-intelektual"
 order: 2
 draft: false
-image: "/images/services/hak-cipta.jpg"
+image: "/images/services/hak-cipta.svg"
 benefits: ["Mengenali jenis karya dan informasi pencipta.", "Membantu menyiapkan data yang diperlukan untuk proses pencatatan.", "Menjelaskan perbedaan pencatatan dan ruang lingkup perlindungan."]
 requirements: ["Data pencipta dan pemegang hak jika berbeda.", "Judul dan jenis ciptaan.", "Salinan atau contoh ciptaan sesuai ketentuan."]
 process: ["Identifikasi jenis ciptaan.", "Pemeriksaan kelengkapan informasi.", "Persiapan pengajuan sesuai prosedur yang berlaku.", "Penyimpanan bukti dan informasi hasil proses."]
