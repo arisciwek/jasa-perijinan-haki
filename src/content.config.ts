@@ -23,6 +23,11 @@ const articles = defineCollection({
     tags: z.array(z.string()).default([]),
     relatedType: z.enum(['service', 'page', 'article']).optional(),
     relatedId: z.number().int().positive().optional(),
+    blocks: z.array(z.object({
+      component: z.string().min(1),
+      heading: z.string().optional(),
+      description: z.string().optional(),
+    })).default([]),
   }),
 });
 

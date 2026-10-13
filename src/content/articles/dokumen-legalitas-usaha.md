@@ -14,6 +14,10 @@ draft: false
 image: "/images/articles/dokumen-legalitas-usaha.svg"
 relatedType: "service"
 relatedId: 201
+blocks:
+  - component: "card"
+    heading: "Langkah berikutnya"
+    description: "Buat daftar dokumen yang tersedia, dokumen yang belum tersedia, dan pertanyaan yang perlu dikonfirmasi. Jangan menganggap satu daftar dokumen berlaku untuk semua jenis usaha."
 ---
 ## Mengapa dokumen perlu dipetakan sejak awal?
 
@@ -33,6 +37,3 @@ Uraikan kegiatan yang benar-benar dilakukan, lokasi operasional, dan rencana pen
 
 Dokumen tambahan dapat berbeda menurut sektor. Periksa daftar persyaratan resmi dan pastikan dokumen yang dikirim melalui kanal konsultasi aman.
 
-## Langkah berikutnya
-
-Buat daftar dokumen yang tersedia, dokumen yang belum tersedia, dan pertanyaan yang perlu dikonfirmasi. Jangan menganggap satu daftar dokumen berlaku untuk semua jenis usaha.
