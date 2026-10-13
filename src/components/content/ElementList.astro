@@ -4,12 +4,17 @@
  * Props:
  * - ordered?: boolean — false (default) -> <ul> bullet; true -> <ol> bernomor
  * - items: string[] (wajib, min. 1) — teks per item, tanpa markdown inline.
+ * - class?: string — kelas <ul>/<ol>; DEFAULT ul:
+ *     "mt-3 list-disc space-y-2 pl-5 leading-8 text-slate-600 marker:text-blue-700"
+ *   ordered: true memakai DEFAULT: "mt-3 list-decimal space-y-2 pl-5 leading-8 text-slate-600 marker:font-semibold marker:text-blue-700"
+ * - itemClass?: string — kelas tiap <li>; DEFAULT: "" (tanpa kelas).
  * Contoh: - type: "list" \n ordered: true \n items: ["Satu", "Dua"]
  */
-const { ordered = false, items = [] } = Astro.props as { ordered?: boolean; items: string[] };
+const { ordered = false, items = [], class: className, itemClass = '' } = Astro.props as { ordered?: boolean; items: string[]; class?: string; itemClass?: string };
 const Tag = ordered ? 'ol' : 'ul';
-const classes = ordered
-  ? 'mt-3 list-decimal space-y-2 pl-5 leading-8 text-slate-600 marker:font-semibold marker:text-blue-700'
-  : 'mt-3 list-disc space-y-2 pl-5 leading-8 text-slate-600 marker:text-blue-700';
+const classes = className
+  ?? (ordered
+    ? 'mt-3 list-decimal space-y-2 pl-5 leading-8 text-slate-600 marker:font-semibold marker:text-blue-700'
+    : 'mt-3 list-disc space-y-2 pl-5 leading-8 text-slate-600 marker:text-blue-700');
 ---
-<Tag class={classes}>{items.map((item) => <li>{item}</li>)}</Tag>
+<Tag class={classes}>{items.map((item) => <li class={itemClass || undefined}>{item}</li>)}</Tag>

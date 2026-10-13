@@ -1,9 +1,11 @@
 ---
 /**
  * ElementParagraph — elemen `{ type: "p", text }` di block "card".
- * Props: text (wajib) — dirender apa adanya, tanpa format markdown inline.
- * Contoh: - type: "p" \n text: "Paragraf..."
+ * Props:
+ * - text: string (wajib) — dirender apa adanya, tanpa format markdown inline.
+ * - class?: string — DEFAULT: "mt-3 leading-8 text-slate-600".
+ * Contoh: - type: "p" \n text: "Paragraf..." \n class: "mt-3 leading-8 text-slate-500"
  */
-const { text } = Astro.props as { text: string };
+const { text, class: className = 'mt-3 leading-8 text-slate-600' } = Astro.props as { text: string; class?: string };
 ---
-<p class="mt-3 leading-8 text-slate-600">{text}</p>
+<p class={className}>{text}</p>

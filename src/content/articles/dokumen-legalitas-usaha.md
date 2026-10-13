@@ -16,6 +16,16 @@ relatedType: "service"
 relatedId: 201
 blocks:
   - component: "card"
+    id: "mengapa-dipetakan"
+    heading: "Mengapa dokumen perlu dipetakan sejak awal?"
+    icon: "target"
+    class:
+      section: "mt-10 rounded-2xl border border-amber-100 bg-amber-50/60 p-6 md:p-8"
+      icon: "inline-flex rounded-xl bg-white p-2.5 text-amber-700 shadow-sm"
+    body:
+      - type: "p"
+        text: "Dokumen yang dibutuhkan bergantung pada bentuk badan usaha, aktivitas, lokasi, dan jenis izin yang akan diurus. Memetakan kebutuhan sejak awal membantu mengurangi risiko data tidak konsisten atau persyaratan penting terlewat."
+  - component: "card"
     id: "kelompok-informasi"
     heading: "Kelompok informasi yang dapat disiapkan"
     body:
@@ -50,7 +60,8 @@ blocks:
     id: "tanya-jawab"
     heading: "Pertanyaan yang sering diajukan"
     icon: "messages"
-    class: "mt-10 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-6 md:p-8"
+    class:
+      section: "mt-10 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-6 md:p-8"
     items:
       - question: "Apakah daftar dokumen sama untuk semua jenis usaha?"
         answer: "Tidak. Daftar dokumen bergantung pada bentuk badan usaha, kegiatan, dan jenis izin yang akan diurus."
@@ -59,7 +70,4 @@ blocks:
       - question: "Apakah dokumen yang dikirim aman?"
         answer: "Kirim dokumen melalui kanal konsultasi resmi dan pastikan yang dikirim adalah salinan yang diperlukan."
 ---
-## Mengapa dokumen perlu dipetakan sejak awal?
-
-Dokumen yang dibutuhkan bergantung pada bentuk badan usaha, aktivitas, lokasi, dan jenis izin yang akan diurus. Memetakan kebutuhan sejak awal membantu mengurangi risiko data tidak konsisten atau persyaratan penting terlewat.
 

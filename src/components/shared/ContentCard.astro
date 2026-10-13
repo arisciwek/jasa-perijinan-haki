@@ -9,13 +9,14 @@
  * - id?:     string — anchor HTML & slug TOC; fallback otomatis `${component}-${index+1}`
  * - heading: string — judul h2 section (wajib)
  * - icon?:   string — nama ikon Tabler, default "circle-check" (daftar: Icon.astro)
- * - class?:  string — kelas section block; DEFAULT: "mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8".
- *              Tulis ulang seluruh string di frontmatter untuk mengubah gaya/warna, contoh varian hijau:
- *              "mt-10 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-6 md:p-8"
+ * - class?:  object — kelas tiap bagian; key yang tidak diisi memakai DEFAULT:
+ *              section: "mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8"
+ *              icon:    "inline-flex rounded-xl bg-white p-2.5 text-blue-700 shadow-sm"
+ *              heading: "mt-4 text-2xl font-extrabold tracking-tight text-slate-950"
  * - body?:   Array elemen bertipe:
- *              { type: "p",     text: string }
- *              { type: "list",  ordered?: boolean, items: string[] }   (min. 1 item)
- *              { type: "image", src: string, alt: string, caption?: string }
+ *              { type: "p",     text: string, class?: string }
+ *              { type: "list",  ordered?: boolean, items: string[], class?: string, itemClass?: string }
+ *              { type: "image", src: string, alt: string, caption?: string, class?: string, imgClass?: string, captionClass?: string }
  *
  * Contoh pemakaian di frontmatter artikel (src/content/articles/*.md):
  *   blocks:
@@ -23,7 +24,9 @@
  *       id: "prinsip-penyimpanan"
  *       heading: "Prinsip penyimpanan dokumen"
  *       icon: "shield-check"
- *       class: "mt-10 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-6 md:p-8"
+ *       class:
+ *         section: "mt-10 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-6 md:p-8"
+ *         icon: "inline-flex rounded-xl bg-white p-2.5 text-emerald-700 shadow-sm"
  *       body:
  *         - type: "p"
  *           text: "Paragraf pertama..."
@@ -38,10 +41,16 @@
  */
 import Icon from './Icon.astro';
 import BodyElements from '../content/BodyElements.astro';
-const { id, heading, icon = 'circle-check', class: className = 'mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8', body = [] } = Astro.props as { id?: string; heading: string; icon?: string; class?: string; body?: any[] };
+const { id, heading, icon = 'circle-check', class: cls = {}, body = [] } = Astro.props as { id?: string; heading: string; icon?: string; class?: Record<string, string>; body?: any[] };
+const classes = {
+  section: 'mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8',
+  icon: 'inline-flex rounded-xl bg-white p-2.5 text-blue-700 shadow-sm',
+  heading: 'mt-4 text-2xl font-extrabold tracking-tight text-slate-950',
+  ...cls,
+};
 ---
-<section id={id} class={className}>
-  <span class="inline-flex rounded-xl bg-white p-2.5 text-blue-700 shadow-sm"><Icon name={icon ?? 'circle-check'} size={24} /></span>
-  <h2 class="mt-4 text-2xl font-extrabold tracking-tight text-slate-950">{heading}</h2>
+<section id={id} class={classes.section}>
+  <span class={classes.icon}><Icon name={icon ?? 'circle-check'} size={24} /></span>
+  <h2 class={classes.heading}>{heading}</h2>
   <BodyElements body={body} />
 </section>
