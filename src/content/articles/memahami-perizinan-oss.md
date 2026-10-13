@@ -32,6 +32,17 @@ blocks:
         text: "Pastikan data badan usaha dan penanggung jawab konsisten dengan dokumen yang tersedia."
       - title: "Periksa kewajiban lanjutan"
         text: "Cek status kewajiban dan izin tambahan yang mungkin melekat pada kegiatan terkait."
+  - component: "glossary"
+    id: "istilah"
+    heading: "Istilah yang sering muncul"
+    icon: "file-text"
+    items:
+      - term: "OSS"
+        definition: "Sistem perizinan berusaha terintegrasi secara elektronik yang dikelola pemerintah."
+      - term: "NIB"
+        definition: "Nomor Induk Berusaha; identitas pokok pelaku usaha yang terbit melalui OSS."
+      - term: "KBLI"
+        definition: "Klasifikasi baku lapangan usaha Indonesia; kode untuk mengelompokkan kegiatan ekonomi."
 ---
 ## Apa yang perlu dipahami sebelum memulai?
 

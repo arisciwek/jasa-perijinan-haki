@@ -1,0 +1,57 @@
+---
+/**
+ * GlossaryBlock — block "glossary" (istilah + definisi).
+ *
+ * Merender: ikon + heading h2 + daftar istilah <dl>/<dt>/<dd> dengan
+ * pemisah antar baris. Heading wajib → masuk "Daftar Isi".
+ *
+ * Props:
+ * - id?:     string — anchor HTML & slug TOC; fallback otomatis `${component}-${index+1}`
+ * - heading: string — judul h2 section (wajib)
+ * - icon?:   string — nama ikon Tabler, default "file-text" (daftar: Icon.astro)
+ * - items:   Array<{ term: string; definition: string }> — min. 1 (wajib)
+ * - class?:  object — kelas tiap bagian; key yang tidak diisi memakai DEFAULT:
+ *              section:    "mt-10 rounded-2xl border border-slate-200 bg-white p-6 md:p-8"
+ *              icon:       "inline-flex rounded-xl bg-blue-50 p-2.5 text-blue-700 shadow-sm"
+ *              heading:    "mt-4 text-2xl font-extrabold tracking-tight text-slate-950"
+ *              list:       "mt-4 divide-y divide-slate-100"   (pembungkus <dl>)
+ *              item:       "py-4 first:pt-0 last:pb-0"        (pembungkus <div> tiap pasangan dt/dd)
+ *              term:       "font-semibold text-slate-950"
+ *              definition: "mt-1 leading-7 text-slate-600"
+ *
+ * Contoh pemakaian di frontmatter artikel (src/content/articles/*.md):
+ *   blocks:
+ *     - component: "glossary"
+ *       id: "istilah"
+ *       heading: "Istilah yang sering muncul"
+ *       items:
+ *         - term: "NIB"
+ *           definition: "Nomor Induk Berusaha; identitas pokok pelaku usaha."
+ *         - term: "KBLI"
+ *           definition: "Klasifikasi baku lapangan usaha Indonesia."
+ */
+import Icon from './Icon.astro';
+const { id, heading, icon = 'file-text', items = [], class: cls = {} } = Astro.props as { id?: string; heading: string; icon?: string; class?: Record<string, string>; items?: { term: string; definition: string }[] };
+const classes = {
+  section: 'mt-10 rounded-2xl border border-slate-200 bg-white p-6 md:p-8',
+  icon: 'inline-flex rounded-xl bg-blue-50 p-2.5 text-blue-700 shadow-sm',
+  heading: 'mt-4 text-2xl font-extrabold tracking-tight text-slate-950',
+  list: 'mt-4 divide-y divide-slate-100',
+  item: 'py-4 first:pt-0 last:pb-0',
+  term: 'font-semibold text-slate-950',
+  definition: 'mt-1 leading-7 text-slate-600',
+  ...cls,
+};
+---
+<section id={id} class={classes.section}>
+  <span class={classes.icon}><Icon name={icon ?? 'file-text'} size={24} /></span>
+  <h2 class={classes.heading}>{heading}</h2>
+  <dl class={classes.list}>
+    {items.map((item) => (
+      <div class={classes.item}>
+        <dt class={classes.term}>{item.term}</dt>
+        <dd class={classes.definition}>{item.definition}</dd>
+      </div>
+    ))}
+  </dl>
+</section>
