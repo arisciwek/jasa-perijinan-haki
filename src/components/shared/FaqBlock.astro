@@ -10,6 +10,9 @@
  * - id?:     string — anchor HTML & slug TOC; fallback otomatis `${component}-${index+1}`
  * - heading: string — judul h2 section (wajib)
  * - icon?:   string — nama ikon Tabler, default "messages" (daftar: Icon.astro)
+ * - class?:  string — kelas section block; DEFAULT: "mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8".
+ *              Tulis ulang seluruh string di frontmatter untuk mengubah gaya/warna, contoh varian hijau:
+ *              "mt-10 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-6 md:p-8"
  * - items:   Array<{ question: string; answer: string }> — min. 1 item (wajib)
  *
  * Contoh pemakaian di frontmatter artikel (src/content/articles/*.md):
@@ -18,6 +21,7 @@
  *       id: "tanya-jawab"
  *       heading: "Pertanyaan yang sering diajukan"
  *       icon: "messages"
+ *       class: "mt-10 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-6 md:p-8"
  *       items:
  *         - question: "Apakah daftar dokumen sama untuk semua jenis usaha?"
  *           answer: "Tidak. Daftar menyesuaikan bentuk badan usaha dan kegiatan."
@@ -25,9 +29,9 @@
  *           answer: "Ya, dokumen inti lebih dahulu, sisanya menyusul."
  */
 import Icon from './Icon.astro';
-const { id, heading, icon = 'messages', items = [] } = Astro.props as { id?: string; heading: string; icon?: string; items?: { question: string; answer: string }[] };
+const { id, heading, icon = 'messages', class: className = 'mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8', items = [] } = Astro.props as { id?: string; heading: string; icon?: string; class?: string; items?: { question: string; answer: string }[] };
 ---
-<section id={id} class="mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8">
+<section id={id} class={className}>
   <span class="inline-flex rounded-xl bg-white p-2.5 text-blue-700 shadow-sm"><Icon name={icon ?? 'messages'} size={24} /></span>
   <h2 class="mt-4 text-2xl font-extrabold tracking-tight text-slate-950">{heading}</h2>
   <div class="mt-4 space-y-3">

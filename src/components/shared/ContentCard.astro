@@ -9,6 +9,9 @@
  * - id?:     string — anchor HTML & slug TOC; fallback otomatis `${component}-${index+1}`
  * - heading: string — judul h2 section (wajib)
  * - icon?:   string — nama ikon Tabler, default "circle-check" (daftar: Icon.astro)
+ * - class?:  string — kelas section block; DEFAULT: "mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8".
+ *              Tulis ulang seluruh string di frontmatter untuk mengubah gaya/warna, contoh varian hijau:
+ *              "mt-10 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-6 md:p-8"
  * - body?:   Array elemen bertipe:
  *              { type: "p",     text: string }
  *              { type: "list",  ordered?: boolean, items: string[] }   (min. 1 item)
@@ -20,12 +23,13 @@
  *       id: "prinsip-penyimpanan"
  *       heading: "Prinsip penyimpanan dokumen"
  *       icon: "shield-check"
+ *       class: "mt-10 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-6 md:p-8"
  *       body:
  *         - type: "p"
  *           text: "Paragraf pertama..."
- *       - type: "list"
+ *         - type: "list"
  *           items: ["Item satu", "Item dua"]
- *       - type: "image"
+ *         - type: "image"
  *           src: "/images/contoh.svg"
  *           alt: "Keterangan aksesibel gambar"
  *           caption: "Keterangan gambar"
@@ -34,9 +38,9 @@
  */
 import Icon from './Icon.astro';
 import BodyElements from '../content/BodyElements.astro';
-const { id, heading, icon = 'circle-check', body = [] } = Astro.props as { id?: string; heading: string; icon?: string; body?: any[] };
+const { id, heading, icon = 'circle-check', class: className = 'mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8', body = [] } = Astro.props as { id?: string; heading: string; icon?: string; class?: string; body?: any[] };
 ---
-<section id={id} class="mt-10 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 md:p-8">
+<section id={id} class={className}>
   <span class="inline-flex rounded-xl bg-white p-2.5 text-blue-700 shadow-sm"><Icon name={icon ?? 'circle-check'} size={24} /></span>
   <h2 class="mt-4 text-2xl font-extrabold tracking-tight text-slate-950">{heading}</h2>
   <BodyElements body={body} />

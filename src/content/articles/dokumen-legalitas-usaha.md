@@ -50,6 +50,7 @@ blocks:
     id: "tanya-jawab"
     heading: "Pertanyaan yang sering diajukan"
     icon: "messages"
+    class: "mt-10 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-6 md:p-8"
     items:
       - question: "Apakah daftar dokumen sama untuk semua jenis usaha?"
         answer: "Tidak. Daftar dokumen bergantung pada bentuk badan usaha, kegiatan, dan jenis izin yang akan diurus."

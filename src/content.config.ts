@@ -29,6 +29,7 @@ const articles = defineCollection({
         id: z.string().min(1).optional(),
         heading: z.string().min(1),
         icon: z.string().optional(),
+        class: z.string().min(1).optional(),
         body: z.array(z.discriminatedUnion('type', [
           z.object({ type: z.literal('p'), text: z.string().min(1) }),
           z.object({ type: z.literal('list'), ordered: z.boolean().default(false), items: z.array(z.string().min(1)).min(1) }),
@@ -40,6 +41,7 @@ const articles = defineCollection({
         id: z.string().min(1).optional(),
         heading: z.string().min(1),
         icon: z.string().optional(),
+        class: z.string().min(1).optional(),
         items: z.array(z.object({ question: z.string().min(1), answer: z.string().min(1) })).min(1),
       }),
     ])).default([]),
