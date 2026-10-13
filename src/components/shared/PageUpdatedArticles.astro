@@ -1,7 +1,7 @@
 ---
 import ArticleCard from './ArticleCard.astro';
 const { articles = [], heading = 'Artikel Terbaru', description = 'Wawasan dan panduan praktis untuk bisnis Anda.' } = Astro.props;
-const latest = [...articles].filter((item) => !item.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+const latest = [...articles].filter((item) => !item.data.draft).sort((a, b) => (b.data.updatedDate ?? b.data.pubDate).valueOf() - (a.data.updatedDate ?? a.data.pubDate).valueOf()).slice(0, 3);
 ---
 <section class="mx-auto max-w-7xl px-5 py-16">
   <div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">

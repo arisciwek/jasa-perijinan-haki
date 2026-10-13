@@ -7,6 +7,8 @@ title: "Pendaftaran Merek"
 description: "Informasi dan pendampingan tahapan pendaftaran merek untuk membantu pelaku usaha memahami persiapan, klasifikasi, dan proses pemeriksaan."
 serviceGroup: "kekayaan-intelektual"
 order: 1
+pubDate: 2026-10-13T11:15:00+07:00
+updatedDate: 2026-10-13T11:15:00+07:00
 draft: false
 image: "/images/services/pendaftaran-merek.svg"
 benefits: ["Membahas identitas merek dan barang atau jasa yang akan dilindungi.", "Membantu memetakan kelas merek yang perlu ditelaah.", "Menjelaskan tahapan umum pendaftaran dan potensi tindak lanjut."]

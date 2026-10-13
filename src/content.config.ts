@@ -46,6 +46,8 @@ const services = defineCollection({
     ...sharedIdentity,
     type: z.literal('service'),
     slug: z.string().min(1),
+    pubDate: z.coerce.date().optional(),
+    updatedDate: z.coerce.date().optional(),
     serviceGroup: z.enum(['perizinan-usaha', 'kekayaan-intelektual']),
     order: z.number().int().default(100),
     benefits: z.array(z.string()).default([]),
