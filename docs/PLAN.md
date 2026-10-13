@@ -6,11 +6,11 @@ Catatan ide yang belum dikerjakan. Urutan = perkiraan dampak terbesar.
 
 | Ide | Deskripsi | Status |
 |---|---|---|
-| Block `steps` | Alur kerja bernomor besar; data dari frontmatter (`items: [{title, text}]`) | belum |
-| Block `stats` | Angka besar + label singkat untuk halaman layanan | belum |
-| Block `cta` | Ajakan bertindak dengan variasi tujuan (kontak / WhatsApp / jadwal konsultasi); monitisasi halaman artikel | belum |
-| Block `note` | Callout catatan/peringatan (info/success/warning) | belum |
-| Block `quote` | Kutipan/testimoni dengan atribusi | belum |
+| Block `steps` | Alur kerja bernomor besar; data dari frontmatter (`items: [{title, text}]`) | selesai |
+| Block `stats` | Angka besar + label singkat untuk halaman layanan | selesai |
+| Block `cta` | Ajakan bertindak dengan variasi tujuan (kontak / WhatsApp / jadwal konsultasi); monitisasi halaman artikel | selesai |
+| Block `note` | Callout catatan/peringatan (info/success/warning) | selesai |
+| Block `quote` | Kutipan/testimoni dengan atribusi | selesai |
 | Formating inline pada elemen block | Teks frontmatter kini apa adanya; opsi: elemen `html` tersanitasi atau dukungan markdown inline | belum |
 
 ## SEO & Struktur Data

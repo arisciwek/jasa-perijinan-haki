@@ -72,12 +72,38 @@ blocks:
     heading: "Siap menyusun dokumen legalitas Anda?"
     message: "Halo, saya ingin konsultasi mengenai dokumen legalitas usaha."
     button: "Konsultasi via WhatsApp"
+  - component: "note"            # callout catatan/peringatan; tanpa heading (tidak masuk TOC)
+    variant: "warning"           # info | success | warning | danger
+    title: "Perhatian"
+    text: "Klasifikasi kegiatan yang salah berdampak pada jenis izin."
+  - component: "steps"           # alur bernomor dengan garis penghubung
+    heading: "Alur persiapan pengurusan"
+    items:
+      - title: "Petakan kegiatan usaha"
+        text: "Uraikan produk atau jasa, proses operasional, dan lokasi kegiatan."
+      - title: "Cocokkan dengan klasifikasi"
+        text: "Pilih klasifikasi yang paling sesuai dengan uraian aktivitas."
+  - component: "stats"           # angka besar + label; heading opsional
+    heading: "Angka yang perlu diketahui"
+    items:
+      - value: "10 tahun"
+        label: "Masa perlindungan merek, dapat diperpanjang"
+      - value: "45 kelas"
+        label: "Kelas klasifikasi barang dan jasa sebagai acuan cakupan"
+  - component: "glossary"        # daftar istilah <dl>/<dt>/<dd>
+    heading: "Istilah yang sering muncul"
+    items:
+      - term: "NIB"
+        definition: "Nomor Induk Berusaha; identitas pokok pelaku usaha."
+  - component: "quote"           # kutipan blockquote; tanpa heading (tidak masuk TOC)
+    text: "Persiapan yang rapi membuat proses pengurusan lebih terarah."
+    source: "Prinsip persiapan pendaftaran merek"
 ---
 ```
 
 Cara kerjanya:
 
-- `component` merujuk registry `src/components/blocks.ts` (`card`, `faq`, `cta`, `table`). Komponen yang tidak terdaftar dilewati saat build.
+- `component` merujuk registry `src/components/blocks.ts` (`card`, `faq`, `cta`, `table`, `note`, `steps`, `stats`, `glossary`, `quote`). Komponen yang tidak terdaftar dilewati saat build.
 - `heading` block otomatis masuk Daftar Isi di sidebar; block tanpa `heading` (mis. CTA) tidak masuk TOC.
 - `id` menentukan anchor HTML; jika kosong, dibuat otomatis `${component}-${index+1}`.
 - Setiap bagian visual punya kelas default di komponen; frontmatter cukup menimpa yang diinginkan lewat `class` (mis. `class.section` untuk mengganti warna kartu).
@@ -105,4 +131,4 @@ Semua konten wajib memiliki `pubDate` dan `updatedDate` (saat dibuat, isi keduan
 
 ## Rencana pengembangan
 
-Backlog ide berikutnya (block `steps`/`stats`, JSON-LD, scroll-spy TOC, audit Lighthouse) tercatat di `docs/PLAN.md`.
+Backlog ide berikutnya (JSON-LD, scroll-spy TOC, audit Lighthouse, formatting inline) tercatat di `docs/PLAN.md`.
