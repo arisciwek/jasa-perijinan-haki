@@ -16,7 +16,7 @@ const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
         <ul class="article-sidebar__list space-y-2 text-sm">
           {toc.map((heading) => (
             <li class="article-sidebar__item">
-              <a class="article-sidebar__link text-slate-600 hover:text-blue-700" href={`#${heading.slug}`}>{heading.text}</a>
+              <a class="article-sidebar__link text-slate-600 transition-colors hover:text-blue-700" href={`#${heading.slug}`}>{heading.text}</a>
             </li>
           ))}
         </ul>
@@ -39,3 +39,37 @@ const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
     </div>
   )}
 </aside>
+<script>
+  // Scroll-spy Daftar Isi: tandai link menuju heading yang sedang terlewati.
+  // Murni scroll listener (tanpa framework): cari heading terakhir yang sudah
+  // melewati garis ~96px dari atas viewport; link aktif diberi warna biru,
+  // font tebal, dan aria-current="true" untuk screen reader.
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.article-sidebar__toc a[href^="#"]'));
+  if (links.length > 0) {
+    const targets = links
+      .map((link) => ({ link, target: document.getElementById((link.getAttribute('href') ?? '').slice(1)) }))
+      .filter((entry): entry is { link: HTMLAnchorElement; target: HTMLElement } => !!entry.target);
+    if (targets.length > 0) {
+      const setActive = (slug: string | null) => {
+        links.forEach((link) => {
+          const active = !!slug && link.getAttribute('href') === `#${slug}`;
+          link.classList.toggle('text-blue-700', active);
+          link.classList.toggle('font-semibold', active);
+          if (active) link.setAttribute('aria-current', 'true');
+          else link.removeAttribute('aria-current');
+        });
+      };
+      const onScroll = () => {
+        let current: string | null = null;
+        for (const { id } of targets.map(({ link }) => ({ id: link.getAttribute('href')!.slice(1) }))) {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= 96) current = id;
+        }
+        if (!current && links.length > 0) current = links[0].getAttribute('href')!.slice(1);
+        setActive(current);
+      };
+      document.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  }
+</script>
