@@ -17,16 +17,16 @@ Catatan ide yang belum dikerjakan. Urutan = perkiraan dampak terbesar.
 
 | Ide | Deskripsi | Status |
 |---|---|---|
-| JSON-LD `Article` | Schema.org pada halaman artikel (judul, tanggal, penulis, gambar) | belum |
-| JSON-LD `FAQPage` | Cocok dengan block faq — potensi rich result Google | belum |
-| JSON-LD `Service` + `BreadcrumbList` | Halaman layanan & breadcrumb semua halaman | belum |
+| JSON-LD `Article` | Schema.org pada halaman artikel (judul, tanggal, penulis, gambar) | selesai |
+| JSON-LD `FAQPage` | Cocok dengan block faq — potensi rich result Google | selesai |
+| JSON-LD `Service` + `BreadcrumbList` | Halaman layanan & breadcrumb halaman artikel + layanan | selesai |
 | Sitemap ping | Notifikasi mesin pencari saat deploy production | belum |
 
 ## UX & Kualitas
 
 | Ide | Deskripsi | Status |
 |---|---|---|
-| Scroll-spy TOC | Link "Daftar Isi" artikel menyorot posisi baca aktif, tanpa framework | belum |
+| Scroll-spy TOC | Link "Daftar Isi" artikel menyorot posisi baca aktif, tanpa framework | selesai |
 | Audit Lighthouse + a11y | Periksa seluruh halaman sebelum production (kontras, kontras fokus, target sentuh) | belum |
 | Switch production robots.txt | Lepas `Disallow: /` + tambah `Sitemap:` saat go-live | belum |
 | Konfigurasi domain produksi | Set `SITE_URL` env sesuai docs/astro-domain-config.md | belum |
@@ -36,3 +36,6 @@ Catatan ide yang belum dikerjakan. Urutan = perkiraan dampak terbesar.
 - Relasi konten child→parent via `relatedType` + `relatedId`
 - Sitemap `lastmod` dari tanggal konten yang dirender (bukan build time)
 - Sistem block dinamis dari frontmatter: registry (`blocks.ts`), elemen bertipe (`p`/`list`/`image`), FAQ accordion, docblock di setiap komponen
+- Block lengkap 9 jenis: `card`, `faq`, `cta`, `table`, `note`, `steps`, `stats`, `glossary`, `quote` — semuanya dikontrol frontmatter + docblock
+- JSON-LD: `Article` + `FAQPage` + `BreadcrumbList` (artikel), `Service` + `FAQPage` + `BreadcrumbList` (layanan) via `src/utils/structured-data.ts`
+- Scroll-spy Daftar Isi: scroll listener murni, `aria-current` untuk aksesibilitas
