@@ -7,8 +7,7 @@ title: "Pencatatan Hak Cipta"
 description: "Pendampingan informasi mengenai pencatatan hak cipta atas karya yang memenuhi ketentuan, termasuk persiapan data pencipta dan ciptaan."
 serviceGroup: "kekayaan-intelektual"
 order: 2
-pubDate: 2026-10-13T11:30:00+07:00
-updatedDate: 2026-10-13T11:30:00+07:00
+pubDate: 2026-10-13T04:30:00Z
 draft: false
 image: "/images/services/hak-cipta.svg"
 benefits: ["Mengenali jenis karya dan informasi pencipta.", "Membantu menyiapkan data yang diperlukan untuk proses pencatatan.", "Menjelaskan perbedaan pencatatan dan ruang lingkup perlindungan."]

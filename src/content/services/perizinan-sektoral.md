@@ -7,8 +7,7 @@ title: "Perizinan Sektoral dan Sertifikasi Usaha"
 description: "Pemetaan kebutuhan izin sektoral atau sertifikasi berdasarkan bidang usaha, antara lain kegiatan ekspor-impor, pertambangan dan migas, transportasi, alat kesehatan, atau jasa konstruksi."
 serviceGroup: "perizinan-usaha"
 order: 3
-pubDate: 2026-10-13T11:00:00+07:00
-updatedDate: 2026-10-13T11:00:00+07:00
+pubDate: 2026-10-13T04:00:00Z
 draft: false
 image: "/images/services/perizinan-sektoral.svg"
 benefits: ["Mengenali kemungkinan persyaratan tambahan berdasarkan sektor.", "Menyusun daftar informasi dan dokumen yang perlu diverifikasi.", "Membantu merencanakan urutan proses pengurusan."]

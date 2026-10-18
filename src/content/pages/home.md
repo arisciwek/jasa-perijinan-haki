@@ -7,8 +7,7 @@ title: "Konsultan Perizinan Usaha dan HAKI untuk Mendukung Bisnis Anda"
 description: "Pendampingan pengurusan legalitas dan perizinan usaha serta perlindungan kekayaan intelektual, mulai dari kebutuhan awal hingga pemetaan tahapan."
 seoTitle: "Konsultan Perizinan Usaha dan HAKI | KonsultanLegal"
 navLabel: "Beranda"
-pubDate: 2026-10-13T07:30:00+07:00
-updatedDate: 2026-10-13T07:30:00+07:00
+pubDate: 2026-10-13T00:30:00Z
 draft: false
 image: "/images/home-og.svg"
 keywords:

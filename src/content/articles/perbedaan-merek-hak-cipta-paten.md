@@ -5,8 +5,7 @@ type: article
 slug: "perbedaan-merek-hak-cipta-paten"
 title: "Perbedaan Merek, Hak Cipta, dan Paten"
 description: "Pahami perbedaan umum tiga bentuk perlindungan kekayaan intelektual dan objek yang dilindunginya."
-pubDate: 2026-10-13T08:45:00+07:00
-updatedDate: 2026-10-13T08:45:00+07:00
+pubDate: 2026-10-13T01:45:00Z
 author: "redaksi"
 category: "kekayaan-intelektual"
 tags: ["merek", "hak cipta", "paten"]

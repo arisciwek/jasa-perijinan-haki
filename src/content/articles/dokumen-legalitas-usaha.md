@@ -5,8 +5,7 @@ type: article
 slug: "dokumen-legalitas-usaha"
 title: "Dokumen Legalitas Usaha: Hal yang Perlu Dipersiapkan"
 description: "Kenali kelompok dokumen yang biasanya perlu dipetakan sebelum mengurus legalitas dan perizinan usaha."
-pubDate: 2026-10-13T08:00:00+07:00
-updatedDate: 2026-10-13T08:00:00+07:00
+pubDate: 2026-10-13T01:00:00Z
 author: "redaksi"
 category: "perizinan-usaha"
 tags: ["legalitas usaha", "dokumen usaha"]

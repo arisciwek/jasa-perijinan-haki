@@ -5,8 +5,7 @@ type: article
 slug: "memahami-perizinan-oss"
 title: "Memahami Perizinan Usaha melalui OSS"
 description: "Panduan awal memahami informasi usaha dan tahapan yang perlu diperiksa sebelum mengurus perizinan melalui OSS."
-pubDate: 2026-10-13T08:15:00+07:00
-updatedDate: 2026-10-13T08:15:00+07:00
+pubDate: 2026-10-13T01:15:00Z
 author: "redaksi"
 category: "perizinan-usaha"
 tags: ["OSS", "izin usaha"]

@@ -7,8 +7,7 @@ title: "Konsultasi dan Pengajuan Paten"
 description: "Informasi awal mengenai perlindungan invensi melalui paten, termasuk pemetaan dokumen teknis dan kebutuhan penelaahan lebih lanjut."
 serviceGroup: "kekayaan-intelektual"
 order: 3
-pubDate: 2026-10-13T11:45:00+07:00
-updatedDate: 2026-10-13T11:45:00+07:00
+pubDate: 2026-10-13T04:45:00Z
 draft: false
 image: "/images/services/paten.svg"
 benefits: ["Membahas gambaran invensi dan tujuan perlindungannya.", "Mengidentifikasi kebutuhan dokumen teknis untuk ditelaah.", "Memetakan tahapan umum dan pertanyaan yang perlu dijawab."]

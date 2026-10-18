@@ -7,8 +7,7 @@ title: "Pendirian Badan Usaha dan Akta Perubahan"
 description: "Pendampingan informasi pengurusan akta pendirian atau perubahan badan usaha serta kebutuhan administrasi terkait seperti NPWP dan NIB sesuai ketentuan."
 serviceGroup: "perizinan-usaha"
 order: 1
-pubDate: 2026-10-13T10:30:00+07:00
-updatedDate: 2026-10-13T10:30:00+07:00
+pubDate: 2026-10-13T03:30:00Z
 draft: false
 image: "/images/services/pendirian-badan-usaha.svg"
 benefits: ["Pemetaan bentuk badan usaha dan kebutuhan administrasi.", "Pemeriksaan awal kelengkapan informasi dari pemohon.", "Koordinasi tahapan sesuai kebutuhan dan ketentuan yang berlaku."]

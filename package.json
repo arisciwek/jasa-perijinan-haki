@@ -4,14 +4,21 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview"
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "typecheck": "astro sync && tsc --noEmit",
+    "validate:content": "node scripts/validate-content.mjs",
+    "validate:frontmatter": "node scripts/validate-frontmatter.mjs",
+    "validate:dates": "node scripts/validate-content-dates.mjs",
+    "validate:output": "node scripts/validate-content-output.mjs",
+    "validate:img-alt": "node scripts/validate-image-alt.mjs",
+    "validate": "npm run validate:content && npm run validate:frontmatter && npm run validate:dates && npm run typecheck && npm run build && npm run validate:output && npm run validate:img-alt"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "astro": "^5.14.1",
-    "rehype-slug": "^6.0.0",
-    "typescript": "^5.9.2"
+    "astro": "^7.4.0",
+    "typescript": "^7.0.2"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.13",
