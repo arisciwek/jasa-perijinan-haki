@@ -8,6 +8,7 @@ description: "Pendampingan pengurusan legalitas dan perizinan usaha serta perlin
 seoTitle: "Konsultan Perizinan Usaha dan HAKI | KonsultanLegal"
 navLabel: "Beranda"
 pubDate: 2026-10-13T00:30:00Z
+updatedDate: 2026-10-13T05:30:00Z
 draft: false
 image: "/images/home-og.svg"
 keywords:

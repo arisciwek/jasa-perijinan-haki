@@ -6,6 +6,7 @@ slug: "persiapan-pendaftaran-merek"
 title: "Persiapan Pendaftaran Merek untuk Pelaku Usaha"
 description: "Informasi awal mengenai identitas merek, barang atau jasa, dan dokumen yang perlu dipersiapkan."
 pubDate: 2026-10-13T01:30:00Z
+updatedDate: 2026-10-13T06:30:00Z
 author: "redaksi"
 category: "kekayaan-intelektual"
 tags: ["merek", "HAKI"]

@@ -8,6 +8,7 @@ description: "Pendampingan pemetaan kebutuhan perizinan usaha melalui sistem OSS
 serviceGroup: "perizinan-usaha"
 order: 2
 pubDate: 2026-10-13T03:45:00Z
+updatedDate: 2026-10-13T08:45:00Z
 draft: false
 image: "/images/services/perizinan-oss.svg"
 benefits: ["Membantu memahami alur perizinan berbasis risiko.", "Pemetaan informasi usaha yang perlu disiapkan.", "Identifikasi izin atau komitmen lanjutan yang perlu diperiksa."]

@@ -8,6 +8,7 @@ description: "Sampaikan kebutuhan perizinan usaha atau kekayaan intelektual Anda
 seoTitle: "Hubungi Konsultan Perizinan Usaha dan HAKI"
 navLabel: "Kontak"
 pubDate: 2026-10-13T02:30:00Z
+updatedDate: 2026-10-13T07:30:00Z
 draft: false
 keywords: [kontak konsultan perizinan, konsultasi HAKI]
 ---

@@ -8,6 +8,7 @@ description: "Pendampingan informasi untuk pendaftaran merek, hak cipta, dan pat
 seoTitle: "Konsultan HAKI: Merek, Hak Cipta, dan Paten"
 navLabel: "HAKI"
 pubDate: 2026-10-13T02:45:00Z
+updatedDate: 2026-10-13T07:45:00Z
 draft: false
 keywords: [konsultan HAKI, pendaftaran merek, hak cipta, paten]
 ---

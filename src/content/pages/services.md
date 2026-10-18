@@ -8,6 +8,7 @@ description: "Jelajahi layanan pendampingan legalitas badan usaha, perizinan sek
 seoTitle: "Layanan Perizinan Usaha dan HAKI"
 navLabel: "Layanan"
 pubDate: 2026-10-13T03:15:00Z
+updatedDate: 2026-10-13T08:15:00Z
 draft: false
 keywords: [layanan perizinan usaha, konsultan legalitas, jasa HAKI]
 ---

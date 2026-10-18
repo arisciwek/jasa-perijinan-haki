@@ -8,6 +8,7 @@ description: "Pendampingan informasi pengurusan akta pendirian atau perubahan ba
 serviceGroup: "perizinan-usaha"
 order: 1
 pubDate: 2026-10-13T03:30:00Z
+updatedDate: 2026-10-13T08:30:00Z
 draft: false
 image: "/images/services/pendirian-badan-usaha.svg"
 benefits: ["Pemetaan bentuk badan usaha dan kebutuhan administrasi.", "Pemeriksaan awal kelengkapan informasi dari pemohon.", "Koordinasi tahapan sesuai kebutuhan dan ketentuan yang berlaku."]

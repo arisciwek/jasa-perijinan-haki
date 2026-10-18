@@ -8,6 +8,7 @@ description: "Mengenal pendekatan kami dalam membantu pelaku usaha memahami kebu
 seoTitle: "Tentang Kami | Konsultan Perizinan Usaha dan HAKI"
 navLabel: "Tentang Kami"
 pubDate: 2026-10-13T02:15:00Z
+updatedDate: 2026-10-13T07:15:00Z
 draft: false
 keywords: [tentang konsultan perizinan, konsultan HAKI]
 ---

@@ -32,7 +32,7 @@ Catatan type-check: `tsc` hanya memeriksa berkas `.ts`. `astro check` tidak dipa
 Setiap berkas Markdown (`articles`, `pages`, `services`) harus memiliki:
 
 - `pubDate` — tanggal publikasi asli, format ISO 8601 UTC tanpa milisekon: `YYYY-MM-DDTHH:mm:ssZ`.
-- `updatedDate` — opsional. Hanya diisi jika konten benar-benar pernah diperbarui; nilainya harus lebih baru dari `pubDate`. Jika belum pernah diupdate, hapus saja field-nya (layout otomatis memakai `pubDate`).
+- `updatedDate` — tanggal perubahan konten terakhir, format UTC tanpa milisekon, wajib lebih baru dari `pubDate`.
 - Setiap nilai `pubDate` dan `updatedDate` harus **unik** lintas koleksi (`articles`, `pages`, `services`) — dua konten tidak mungkin disubmit pada detik yang sama.
 - `ulid` wajib 26 karakter alfanumerik kapital dan unik lintas semua koleksi (termasuk `authors` dan `categories` JSON).
 
@@ -56,5 +56,5 @@ Validasi otomatis dijalankan melalui `npm run validate`. Jangan mengklaim pemeri
 
 - Semua teks yang terlihat pengguna berasal dari frontmatter (`blocks`, field layanan) atau body Markdown yang memang dirender.
 - `relatedType`/`relatedId` hanya boleh merujuk koleksi dan id yang benar-benar ada.
-- `updatedDate` hanya ditulis saat konten benar-benar berubah; jangan mengubah `pubDate` demi membuat artikel tampak baru.
+- `updatedDate` hanya ditulis saat konten benar-benar berubah; jangan mengubah `pubDate` demi membuat artikel tampak baru. Saat konten berubah, tulis `updatedDate` baru yang unik dan lebih baru dari `pubDate`.
 - Draft (`draft: true`) dilewati validator output dan tidak masuk rute.

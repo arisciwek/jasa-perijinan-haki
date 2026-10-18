@@ -61,7 +61,7 @@ for (const collection of collections) {
       if (updatedDate < pubDate) {
         errors.push(file + ': updatedDate (' + updatedDate + ') tidak boleh lebih awal dari pubDate (' + pubDate + ')');
       } else if (updatedDate === pubDate) {
-        errors.push(file + ': updatedDate tidak boleh sama dengan pubDate (' + pubDate + '); hapus updatedDate jika konten belum pernah diperbarui');
+        errors.push(file + ': updatedDate tidak boleh sama dengan pubDate (' + pubDate + ')');
       }
     }
 

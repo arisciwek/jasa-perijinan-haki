@@ -8,6 +8,7 @@ description: "Pemetaan kebutuhan izin sektoral atau sertifikasi berdasarkan bida
 serviceGroup: "perizinan-usaha"
 order: 3
 pubDate: 2026-10-13T04:00:00Z
+updatedDate: 2026-10-13T09:00:00Z
 draft: false
 image: "/images/services/perizinan-sektoral.svg"
 benefits: ["Mengenali kemungkinan persyaratan tambahan berdasarkan sektor.", "Menyusun daftar informasi dan dokumen yang perlu diverifikasi.", "Membantu merencanakan urutan proses pengurusan."]

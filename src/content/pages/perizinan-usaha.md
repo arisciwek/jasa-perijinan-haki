@@ -8,6 +8,7 @@ description: "Informasi layanan pendampingan pendirian badan usaha, perizinan OS
 seoTitle: "Konsultan Perizinan Usaha dan Legalitas Bisnis"
 navLabel: "Perizinan Usaha"
 pubDate: 2026-10-13T03:00:00Z
+updatedDate: 2026-10-13T08:00:00Z
 draft: false
 keywords: [konsultan perizinan usaha, legalitas bisnis, izin usaha]
 ---
