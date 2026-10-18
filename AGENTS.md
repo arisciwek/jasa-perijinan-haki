@@ -34,7 +34,7 @@ Setiap berkas Markdown (`articles`, `pages`, `services`) harus memiliki:
 - `pubDate` — tanggal publikasi asli, format ISO 8601 UTC tanpa milisekon: `YYYY-MM-DDTHH:mm:ssZ`.
 - `updatedDate` — tanggal perubahan konten terakhir, format UTC tanpa milisekon, wajib lebih baru dari `pubDate`.
 - Setiap nilai `pubDate` dan `updatedDate` harus **unik** lintas koleksi (`articles`, `pages`, `services`) — dua konten tidak mungkin disubmit pada detik yang sama.
-- `ulid` wajib 26 karakter alfanumerik kapital dan unik lintas semua koleksi (termasuk `authors` dan `categories` JSON).
+- ULID wajib 26 karakter Crockford base32 (`/^[0-7][0-9A-HJKMNP-TV-Z]{25}$/`, diawali 0-7, tanpa I/L/O/U) dan unik lintas semua koleksi (termasuk `authors` dan `categories` JSON).
 
 Validasi otomatis dijalankan melalui `npm run validate`. Jangan mengklaim pemeriksaan lulus jika belum dijalankan.
 

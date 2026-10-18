@@ -4,7 +4,7 @@ import { glob } from 'astro/loaders';
 
 const sharedIdentity = {
   id: z.number().int().positive(),
-  ulid: z.string().length(26),
+  ulid: z.string().regex(/^[0-7][0-9A-HJKMNP-TV-Z]{25}$/, 'ULID tidak valid'),
   title: z.string().min(1),
   description: z.string().min(1),
   draft: z.boolean().default(false),
@@ -205,7 +205,7 @@ const categories = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/categories' }),
   schema: z.object({
     id: z.number().int().positive(),
-    ulid: z.string().length(26),
+    ulid: z.string().regex(/^[0-7][0-9A-HJKMNP-TV-Z]{25}$/, 'ULID tidak valid'),
     type: z.literal('category'),
     slug: z.string(),
     title: z.string(),
@@ -217,7 +217,7 @@ const authors = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/authors' }),
   schema: z.object({
     id: z.number().int().positive(),
-    ulid: z.string().length(26),
+    ulid: z.string().regex(/^[0-7][0-9A-HJKMNP-TV-Z]{25}$/, 'ULID tidak valid'),
     type: z.literal('author'),
     slug: z.string(),
     name: z.string(),

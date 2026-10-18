@@ -106,15 +106,14 @@ for (const collection of jsonCollections) {
 }
 
 const allUlids = new Map();
-// ULID di repo ini tidak strict Crockford, jadi aturannya:
-// tepat 26 karakter alfanumerik kapital + keunikan global lintas semua koleksi.
-const ulidPattern = /^[0-9A-Z]{26}$/;
+// Standar global: ULID strict Crockford base32 (tanpa I/L/O/U, diawali 0-7) + keunikan global.
+const ulidPattern = /^[0-7][0-9A-HJKMNP-TV-Z]{25}$/;
 
 for (const [, items] of records) {
   for (const item of items) {
     if (item.ulid) {
       if (!ulidPattern.test(item.ulid)) {
-        errors.push(item.file + ': format ULID tidak valid (wajib 26 karakter alfanumerik kapital), ditemukan "' + item.ulid + '"');
+        errors.push(item.file + ': format ULID tidak valid (wajib 26 karakter Crockford base32, diawali 0-7, tanpa I/L/O/U), ditemukan "' + item.ulid + '"');
       } else if (allUlids.has(item.ulid)) {
         errors.push(item.file + ': ULID duplikat dengan ' + allUlids.get(item.ulid));
       } else {
